@@ -8,6 +8,7 @@ Al executar la comanda anterior ens explica el que instalara i ens preguntara si
 ![Image text](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_18-57.png)
 
 Habilitarem el repositori:
+
 `percona-release setup ps80`
 
 Ens tornara a pregurtar si estem segurs li indiquem que si aquest cop amb: "y" com es veu a la imatge
