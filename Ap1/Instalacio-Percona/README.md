@@ -1,6 +1,6 @@
 # INSTALACIÓ MYSQL PERCONA
 
-###INSTALACIÓ
+### INSTALACIÓ
 
 Instalarem el repositori de percona amb la seguent comanda:
 
