@@ -1,3 +1,1 @@
 * # Bases-de-dades
-
-PROVA
