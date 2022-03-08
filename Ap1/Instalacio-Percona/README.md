@@ -8,7 +8,7 @@ Instalarem el repositori de percona amb la seguent comanda:
 
 Al executar la comanda anterior ens explica el que instalara i ens preguntara si estem d'acord amb la instalacio, li indiquem que si amb: "s"
 
-![ScreenShot](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_18-57.png)
+![ScreenShot](imgs/2022-03-04_18-57.png)
 
 Habilitarem el repositori:
 
@@ -16,7 +16,7 @@ Habilitarem el repositori:
 
 Ens tornara a pregurtar si estem segurs li indiquem que si aquest cop amb: "y" com es veu a la imatge
 
-![ScreenShot](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_19-18.png)
+![ScreenShot](imgs/2022-03-04_19-18.png)
 
 I finalment instalem el percona
 
@@ -24,10 +24,13 @@ I finalment instalem el percona
 
 Ens fara varies perguntes i li contestarem "s" en tots els casos
 
-![ScreenShot](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_19-20.png)
+![ScreenShot](imgs/2022-03-04_19-20.png)
 
 Per comprovar que el mysql esta fucionant farem el seguent:
 
 `systemctl status mysql`
-<img src="/imgs/2022-03-04_15-44"></img>
+
+I ens a d'apareixer el missatge "active (running)" com a la imatge
+![ScreenShot](imgs/2022-03-08_15-44.png)
+
 ### POSTINSTALACIÓ
