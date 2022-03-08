@@ -26,6 +26,8 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ![ScreenShot](imgs/2022-03-04_19-20.png)
 
+## POSTINSTALACIÓ
+
 Per comprovar que el mysql esta fucionant farem el seguent:
 
 `systemctl status mysql`
@@ -33,4 +35,4 @@ Per comprovar que el mysql esta fucionant farem el seguent:
 I ens a d'apareixer el missatge "active (running)" com a la imatge
 ![ScreenShot](imgs/2022-03-08_15-44.png)
 
-## POSTINSTALACIÓ
+A continuació hem de mirar quina es la contraseña que s'ha generat de forma aleatoria per l'usuari Root
