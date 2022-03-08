@@ -48,6 +48,9 @@ Ara entrarem al mysql amb l'usuari Root i la contrasenya que ens ha generat el p
 
 ![ScreenShot](imgs/login_root.png)
 
+Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fer-ho haurem de realitzar els seguents passos:
+
+Afegirem una regla al firewall 
 
 ### COMANDES PERCONA
 
