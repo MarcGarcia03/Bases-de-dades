@@ -49,4 +49,13 @@ Ara entrarem al mysql amb l'usuari Root i la contrasenya que ens ha generat el p
 ![ScreenShot](imgs/login_root.png)
 
 
-## COMANDES 
+### COMANDES PERCONA
+
+Apagar el servei de Percona:
+`systemctl stop mysql`
+
+Iniciar el servei de Percona:
+`systemctl start mysql`
+
+Veure l'estat del servei de Percona:
+`systemctl status mysql`
