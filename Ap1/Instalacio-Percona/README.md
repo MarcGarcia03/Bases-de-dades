@@ -8,7 +8,7 @@ Instalarem el repositori de percona amb la seguent comanda:
 
 Al executar la comanda anterior ens explica el que instalara i ens preguntara si estem d'acord amb la instalacio, li indiquem que si amb: "s"
 
-![ScreenShot](imgs/2022-03-04_18-57.png)
+![ScreenShot](imgs/percona.png)
 
 Habilitarem el repositori:
 
@@ -16,7 +16,7 @@ Habilitarem el repositori:
 
 Ens tornara a pregurtar si estem segurs li indiquem que si aquest cop amb: "y" com es veu a la imatge
 
-![ScreenShot](imgs/2022-03-04_19-18.png)
+![ScreenShot](imgs/habilitar_repositori_percona.png)
 
 I finalment instalem el percona
 
@@ -24,7 +24,7 @@ I finalment instalem el percona
 
 Ens fara varies perguntes i li contestarem "s" en tots els casos
 
-![ScreenShot](imgs/2022-03-04_19-20.png)
+![ScreenShot](imgs/instalar_percona.png)
 
 ## POSTINSTALACIÓ
 
@@ -33,6 +33,11 @@ Per comprovar que el mysql esta fucionant farem el seguent:
 `systemctl status mysql`
 
 I ens a d'apareixer el missatge "active (running)" com a la imatge
-![ScreenShot](imgs/2022-03-08_15-44.png)
 
-A continuació hem de mirar quina es la contraseña que s'ha generat de forma aleatoria per l'usuari Root
+![ScreenShot](imgs/systemctl_mysql.png)
+
+A continuació hem de mirar quina es la contraseña que s'ha generat de forma aleatoria per l'usuari Root:
+
+`cat /var/log/mysqld.log |grep generated`
+
+![ScreenShot](imgs/veure_contra.png)
