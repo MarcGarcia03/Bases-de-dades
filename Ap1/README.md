@@ -11,3 +11,12 @@
 
 ## Instalació Redis
 <a href=""><img src="imgs/Redis_logo.png" width="300"></a>
+
+## HARDWARE i SOFTWARE
+Per a realitzar aquesta practica he utilitzat una maquina virtual amb 1 core, 2GB de RAM i 50GB de disc dur
+
+![ScreenShot](imgs/maquina.png)
+
+I com a sistema operatiu he fet servir un RedHat 8.5
+
+<img src="imgs/RedHat.png" width="300">
