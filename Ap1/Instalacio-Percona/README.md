@@ -59,3 +59,8 @@ Iniciar el servei de Percona:
 
 Veure l'estat del servei de Percona:
 `systemctl status mysql`
+
+### FITXER DE CONFIGURACIÓ
+
+El fitxer de configuració de Percona es:
+`/etc/my.cnf`
