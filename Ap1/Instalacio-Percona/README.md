@@ -33,4 +33,4 @@ Per comprovar que el mysql esta fucionant farem el seguent:
 I ens a d'apareixer el missatge "active (running)" com a la imatge
 ![ScreenShot](imgs/2022-03-08_15-44.png)
 
-### POSTINSTALACIÓ
+## POSTINSTALACIÓ
