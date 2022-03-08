@@ -41,3 +41,12 @@ A continuació hem de mirar quina es la contraseña que s'ha generat de forma al
 `cat /var/log/mysqld.log |grep generated`
 
 ![ScreenShot](imgs/veure_contra.png)
+
+Ara entrarem al mysql amb l'usuari Root i la contrasenya que ens ha generat el percona:
+
+`mysql -u root -p`
+
+![ScreenShot](imgs/login_root.png)
+
+
+## COMANDES 
