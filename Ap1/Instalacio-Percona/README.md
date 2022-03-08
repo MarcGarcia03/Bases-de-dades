@@ -1,6 +1,6 @@
 # INSTALACIÓ MYSQL PERCONA
 
-### INSTALACIÓ
+## INSTALACIÓ
 
 Instalarem el repositori de percona amb la seguent comanda:
 
@@ -9,7 +9,6 @@ Instalarem el repositori de percona amb la seguent comanda:
 Al executar la comanda anterior ens explica el que instalara i ens preguntara si estem d'acord amb la instalacio, li indiquem que si amb: "s"
 
 ![ScreenShot](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_18-57.png)
-
 
 Habilitarem el repositori:
 
@@ -27,5 +26,8 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ![ScreenShot](https://github.com/MarcGarcia03/Bases-de-dades/blob/main/Ap1/Instalacio-Percona/imgs/2022-03-04_19-20.png)
 
+Per comprovar que el mysql esta fucionant farem el seguent:
 
+`systemctl status mysql`
+<img src="/imgs/2022-03-04_15-44"></img>
 ### POSTINSTALACIÓ
