@@ -40,8 +40,8 @@ Realitzarem la securització del percona per fer mes segura la base de dades:
 
 `mysql_secure_installation`
 ´
-El primer cop que introduim el password nou ens dona un error,perque el percona ja porta un component instalat, pero es normal
-Introduirem la nova contrasenya per a root:
+El primer cop que introduim el password nou ens dona un error,(perque el percona ja porta un component instalat), i ens fara una pregunta, li contestarem: y
+A continuació introduirem la nova contrasenya per a root 2 cops:
 
 ![ScreenShot](imgs/percona_securitzacio.png)
 
