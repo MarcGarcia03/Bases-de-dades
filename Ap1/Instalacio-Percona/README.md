@@ -26,7 +26,7 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ![ScreenShot](imgs/instalar_percona.png)
 
-## POSTINSTALACIÓ
+## POSTINSTALACIÓ 
 
 Per comprovar l'estat del mysql farem el seguent:
 
