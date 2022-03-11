@@ -28,13 +28,22 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ## POSTINSTALACIÓ
 
-Per comprovar que el mysql esta fucionant farem el seguent:
+Per comprovar l'estat del mysql farem el seguent:
 
 `systemctl status mysql`
 
 I ens a d'apareixer el missatge "active (running)" com a la imatge
 
 ![ScreenShot](imgs/systemctl_mysql.png)
+
+Realitzarem la securització del percona per fer mes segura la base de dades:
+
+`mysql_secure_installation`
+´
+El primer cop que introduim el password nou ens dona un error,perque el percona ja porta un component instalat, pero es normal
+Introduirem la nova contrasenya per a root:
+
+![ScreenShot](imgs/percona_securitzacio.png)
 
 A continuació hem de mirar quina es la contraseña que s'ha generat de forma aleatoria per l'usuari Root:
 
