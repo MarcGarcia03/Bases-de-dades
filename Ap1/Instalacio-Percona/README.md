@@ -60,7 +60,7 @@ Finalment ens preguntara si volem recarregar els permisos de les taules, es reco
 Ara entrarem al mysql amb l'usuari Root i la contrasenya que hem canviat anteriorment:
 
 `mysql -u root -p`
-º
+
 ![ScreenShot](imgs/login_root.png)
 
 Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fer-ho haurem de realitzar els seguents passos:
