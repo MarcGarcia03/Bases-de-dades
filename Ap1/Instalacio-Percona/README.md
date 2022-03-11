@@ -41,20 +41,26 @@ Realitzarem la securització del percona per fer mes segura la base de dades:
 `mysql_secure_installation`
 
 El primer cop que introduim el password nou ens dona un error,(perque el percona ja porta un component instalat), i ens fara una pregunta, li contestarem: y
-A continuació introduirem la nova contrasenya per a root 2 cops:
+A continuació introduirem la nova contrasenya per a root (2 cops):
 
 ![ScreenShot](imgs/percona_securitzacio.png)
 
-A continuació hem de mirar quina es la contraseña que s'ha generat de forma aleatoria per l'usuari Root:
+Ara ens preguntara si volem utilitzar la contrasenya que acabem d'introduir, i si volem eliminar els usuaris anonims, es recomenable dir que si per millorar la seguretat de la base de dades
 
-`cat /var/log/mysqld.log |grep generated`
+![ScreenShot](imgs/percona_securitzacio1.png)
 
-![ScreenShot](imgs/veure_contra.png)
+A continuació ens pregunta si volem deshabilitar el login del root de forma remota, i si volem esborrar la base de dades de proves, es recomenable dir que si
 
-Ara entrarem al mysql amb l'usuari Root i la contrasenya que ens ha generat el percona:
+![ScreenShot](imgs/percona_securitzacio2.png)
+
+Finalment ens preguntara si volem recarregar els permisos de les taules, es recomenable dir que si
+
+![ScreenShot](imgs/percona_securitzacio3.png)
+
+Ara entrarem al mysql amb l'usuari Root i la contrasenya que hem canviat anteriorment:
 
 `mysql -u root -p`
-
+º
 ![ScreenShot](imgs/login_root.png)
 
 Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fer-ho haurem de realitzar els seguents passos:
