@@ -105,7 +105,9 @@ El fitxer de configuració de Percona es:
 
 ### CANVIAR EL PORT PEL QUE ESCOLTA
 
+Per canviar el port per defecte anirem al arxiu `/etc/my.cnf` i afegirem la linia `port=[port]`
 
+![ScreenShot](imgs/port.png)
 
 ### CREAR USUARI AL SISTEMA IGUAL QUE EL DEL PERCONA
 
