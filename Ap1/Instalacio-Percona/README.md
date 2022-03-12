@@ -95,15 +95,17 @@ Crearem l'arxiu `nano /home/[NOMUSUARI]/.my.cnf` i el modificarem com veiem a la
 
 I finalment intentem connecternos al Percona desde el Workbench:
 
-Crearem una connexio al Workbench
+Crearem una connexio al Workbench:
+
 ![ScreenShot](imgs/workbench_connexio.png)
 
 Introduirem la contrasenya:
+
 ![ScreenShot](imgs/login_workbench.png)
 
 I ja ens podrem connectar al Percona de forma remota:
-![ScreenShot](imgs/workbench_funciona.png)
 
+![ScreenShot](imgs/workbench_funciona.png)
 
 ### COMANDES PERCONA
 
