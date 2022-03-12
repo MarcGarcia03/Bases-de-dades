@@ -73,9 +73,9 @@ Crearem un usuari per accedir de forma remota:
 
 [OPCIONAL] Canviarem els requisits de complexitat de la contrasenya per posar la que nosaltres volguem:
 
-`SET GLOBAL validate_password.policy=LOW`
+`SET GLOBAL validate_password.policy=LOW;`
 
-`SET GLOBAL validate_password.length=6`
+`SET GLOBAL validate_password.length=6;`
 
 ![ScreenShot](imgs/requisits_password.png)
 
@@ -102,3 +102,21 @@ Veure l'estat del servei de Percona:
 
 El fitxer de configuració de Percona es:
 `/etc/my.cnf`
+
+### CANVIAR EL PORT PEL QUE ESCOLTA
+
+
+
+### CREAR USUARI AL SISTEMA IGUAL QUE EL DEL PERCONA
+
+Primer canviarem els requisits de la contraseña del RedHat
+Anirem al fitxer `/etc/security/pwquality.conf` i modificarem el seguent:
+
+![ScreenShot](imgs/requisits_password_redhat.png)
+
+A continuació crearem l'usuari i li asignarem un password:
+
+`useradd [NOMUSUARI]`
+`passwd [NOMUSUARI]`
+![ScreenShot](imgs/crear_usuari_asix_SO.png)
+![ScreenShot](imgs/cambiar_contra_asix_SO.png)
