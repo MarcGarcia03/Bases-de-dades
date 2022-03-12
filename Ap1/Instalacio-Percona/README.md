@@ -144,3 +144,9 @@ A continuació crearem l'usuari i li asignarem un password:
 
 ![ScreenShot](imgs/crear_usuari_asix_SO.png)
 ![ScreenShot](imgs/cambiar_contra_asix_SO.png)
+
+### ON GUARDA LES DADES EL PERCONA?
+
+Per veure on guarda les dades haurem d'accedir al fitxer de configuració `/etc/my.cnf` i ens haurem de fixar en la ruta que indica despres de `datadir=[ruta]`
+
+![ScreenShot](imgs/datadir.png)
