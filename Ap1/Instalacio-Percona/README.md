@@ -107,7 +107,7 @@ I ja ens podrem connectar al Percona de forma remota:
 
 ![ScreenShot](imgs/workbench_funciona.png)
 
-### COMANDES PERCONA
+### COMANDES PER GESTIONAR EL SERVEI DE PERCONA
 
 Apagar el servei de Percona:
 `systemctl stop mysql`
