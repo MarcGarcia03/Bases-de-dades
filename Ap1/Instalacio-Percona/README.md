@@ -87,6 +87,12 @@ Crearem l'usuari:
 
 ![ScreenShot](imgs/crear_usuari.png)
 
+A continuació configurarem l'usuari perque no hagi d'introduir el user i el password cada cop que entra en el client del percona:
+
+Crearem l'arxiu `nano /home/[NOMUSUARI]/.my.cnf` i el modificarem com veiem a la imatge
+
+![ScreenShot](imgs/autologin.png)
+
 ### COMANDES PERCONA
 
 Apagar el servei de Percona:
