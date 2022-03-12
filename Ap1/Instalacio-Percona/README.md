@@ -117,6 +117,8 @@ Anirem al fitxer `/etc/security/pwquality.conf` i modificarem el seguent:
 A continuació crearem l'usuari i li asignarem un password:
 
 `useradd [NOMUSUARI]`
+
 `passwd [NOMUSUARI]`
+
 ![ScreenShot](imgs/crear_usuari_asix_SO.png)
 ![ScreenShot](imgs/cambiar_contra_asix_SO.png)
