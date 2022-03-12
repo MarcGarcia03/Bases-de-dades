@@ -26,7 +26,7 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ![ScreenShot](imgs/instalar_percona.png)
 
-## POSTINSTALACIÓ 
+## POSTINSTALACIÓ
 
 Per comprovar l'estat del mysql farem el seguent:
 
@@ -66,7 +66,23 @@ Ara entrarem al mysql amb l'usuari Root i la contrasenya que hem canviat anterio
 Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fer-ho haurem de realitzar els seguents passos:
 
 Afegirem una regla al firewall per habilitar la conexio desde fora:
+
 ![ScreenShot](imgs/regla_firewall.png)
+
+Crearem un usuari per accedir de forma remota:
+
+[OPCIONAL] Canviarem els requisits de complexitat de la contrasenya per posar la que nosaltres volguem:
+
+`SET GLOBAL validate_password.policy=LOW`
+`SET GLOBAL validate_password.length=6`
+
+![ScreenShot](imgs/requisits_password.png)
+
+Crearem l'usuari:
+`CREATE USER 'NOMUSUARI'@'[ LOCALHOST | % ]' IDENTIFIED BY 'PASSWORD';`
+`GRANT ALL PRIVILEGES ON *.* TO 'NOMUSUARI'@'[ LOCALHOST | % ]]';`
+
+![ScreenShot](imgs/crear_usuari.png)
 
 ### COMANDES PERCONA
 
