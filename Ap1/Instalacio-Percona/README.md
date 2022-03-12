@@ -74,12 +74,15 @@ Crearem un usuari per accedir de forma remota:
 [OPCIONAL] Canviarem els requisits de complexitat de la contrasenya per posar la que nosaltres volguem:
 
 `SET GLOBAL validate_password.policy=LOW`
+
 `SET GLOBAL validate_password.length=6`
 
 ![ScreenShot](imgs/requisits_password.png)
 
 Crearem l'usuari:
+
 `CREATE USER 'NOMUSUARI'@'[ LOCALHOST | % ]' IDENTIFIED BY 'PASSWORD';`
+
 `GRANT ALL PRIVILEGES ON *.* TO 'NOMUSUARI'@'[ LOCALHOST | % ]]';`
 
 ![ScreenShot](imgs/crear_usuari.png)
