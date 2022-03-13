@@ -67,7 +67,7 @@ Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fe
 
 Afegirem una regla al firewall per habilitar la conexio desde fora:
 
-`sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
 
 `firewall-cmd --reload`
 

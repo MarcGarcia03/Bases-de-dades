@@ -50,7 +50,7 @@ I crearem un usuari amb tots els permisos per a connectarnos de forma remota i f
 
 I crearem una regla al firewall per connectarnos desde fora:
 
-`sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
 
 `firewall-cmd --reload`
 
