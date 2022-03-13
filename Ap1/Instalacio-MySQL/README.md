@@ -72,7 +72,7 @@ Per canviar el port del mysql anirem al fitxer de configuracio i afegirem el seg
 
 ### ON GUARDA MYSQL ELS FITXERS DE DADES?
 
-Anirem a la ruta `/etc/mysql.cnf.d` i entrarem al fitxer `mysql-server.cnf` i buscarem la linia que posa `datadir`
+Anirem a la ruta `/etc/mysql.cnf.d` i entrarem al fitxer `mysql-server.cnf` i buscarem la linia que posa `datadir=[ruta]`
 
 ![ScreenShot](imgs/datadir.png)
 
