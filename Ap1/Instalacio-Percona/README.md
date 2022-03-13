@@ -28,7 +28,7 @@ Ens fara varies perguntes i li contestarem "s" en tots els casos
 
 ## POSTINSTALACIÓ
 
-Per comprovar l'estat del mysql farem el seguent:
+Per comprovar l'estat del percona farem el seguent:
 
 `systemctl status mysql`
 
@@ -66,6 +66,10 @@ Ara entrarem al mysql amb l'usuari Root i la contrasenya que hem canviat anterio
 Per finalitzar les proves, ens connectarem al Percona desde el Workbench, per fer-ho haurem de realitzar els seguents passos:
 
 Afegirem una regla al firewall per habilitar la conexio desde fora:
+
+`sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+
+`firewall-cmd --reload`
 
 ![ScreenShot](imgs/regla_firewall.png)
 
