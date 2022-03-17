@@ -39,3 +39,10 @@ Ara executarem les seguents comandes per aixecar el servei i comprovar l'estat d
 Per verificar que el Mongo esta correctament instalat ens ha d'apareixer el missatge de "active (running)" com a la imatge
 
 ![ScreenShot](imgs/status.png)
+
+A continuació executarem la seguent comanda per entrar a Mongo:
+
+`mongo`
+
+![ScreenShot](imgs/mongo1.png)
+![ScreenShot](imgs/mongo2.png)
