@@ -22,3 +22,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
 
 ![ScreenShot](imgs/fitxer_instalacio.png)
 
+A continuació instalarem el MongoDB:
+
+`sudo yum install -y mongodb-org`
+
