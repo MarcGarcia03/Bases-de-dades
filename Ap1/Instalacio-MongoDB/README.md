@@ -26,3 +26,16 @@ A continuació instalarem el MongoDB:
 
 `sudo yum install -y mongodb-org`
 
+![ScreenShot](imgs/instalacio.png)
+
+## POSTINSTALACIÓ
+
+Ara executarem les seguents comandes per aixecar el servei i comprovar l'estat de Mongo:
+
+`sudo systemctl start mongod`
+
+`sudo systemctl status mongod`
+
+Per verificar que el Mongo esta correctament instalat ens ha d'apareixer el missatge de "active (running)" com a la imatge
+
+![ScreenShot](imgs/status.png)
