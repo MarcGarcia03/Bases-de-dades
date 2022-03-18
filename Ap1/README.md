@@ -17,6 +17,7 @@ Per a realitzar aquesta pràctica he utilitzat una màquina virtual amb 1 core, 
 
 ![ScreenShot](imgs/maquina.png)
 
+
 I com a sistema operatiu he fet servir un RedHat 8.5
 
 <img src="imgs/RedHat.png" width="300">
