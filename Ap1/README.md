@@ -55,6 +55,7 @@ I ens ha d'aparèixer la subscripció "Red Hat Developer Subscription for Indivi
 ![ScreenShot](imgs/subs_ok_redhat.png)
 
 Un cop tinguem instal·lat el redhat, executarem les següents comandes per a registrar la màquina amb el nostre usuari:
+
 `subscription-manager register` (Ens demanarà usuari i password)
 
 `subscription-manager refresh`
