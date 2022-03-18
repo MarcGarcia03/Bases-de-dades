@@ -2,7 +2,7 @@
 
 ## Instal·lació Percona
 
-<a href="https://github.com/MarcGarcia03/Bases-de-dades/tree/main/Ap1/Instalacio-Percona"><img src="imgs/percona_logo.png" width="1080"></a>
+<a href="https://github.com/MarcGarcia03/Bases-de-dades/tree/main/Ap1/Instalacio-Percona"><img src="imgs/percona_logo.png" width="180"></a>
 
 ## Instal·lació MySQL
 
