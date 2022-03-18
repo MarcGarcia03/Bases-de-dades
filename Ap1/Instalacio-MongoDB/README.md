@@ -1,12 +1,12 @@
-# INSTALACIÓ MONGO DB
+# INSTAL·LACIÓ MONGO DB
 
-## INSTALACIÓ
+## INSTAL·LACIÓ
 
-[OPCIONAL] Es molt recomenable executar la seguent comanda:
+[OPCIONAL] És molt recomanable executar la següent comanda:
 
 `yum update`
 
-Crearem un fitxer per poder instalar el MongoDB amb el yum
+Crearem un fitxer per poder instal·lar el MongoDB amb el yum
 
 `touch /etc/yum.repos.d/mongodb-org-5.0.repo`
 
@@ -22,32 +22,32 @@ gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
 
 ![ScreenShot](imgs/fitxer_instalacio.png)
 
-A continuació instalarem el MongoDB:
+A continuació instal·larem el MongoDB:
 
 `sudo yum install -y mongodb-org`
 
 ![ScreenShot](imgs/instalacio.png)
 
-## POSTINSTALACIÓ
+## POSTINSTAL·LACIÓ
 
-Ara executarem les seguents comandes per aixecar el servei i comprovar l'estat de Mongo:
+Ara executarem les següents comandes per aixecar el servei i comprovar l'estat de MongoDB:
 
 `sudo systemctl start mongod`
 
 `sudo systemctl status mongod`
 
-Per verificar que el Mongo esta correctament instalat ens ha d'apareixer el missatge de "active (running)" com a la imatge
+Per verificar que el Mongo està correctament instal·lat ens ha d'aparèixer el missatge de "active (running)" com a la imatge
 
 ![ScreenShot](imgs/status.png)
 
-A continuació executarem la seguent comanda per entrar a Mongo:
+A continuació executarem la següent comanda per entrar a MongoDB:
 
 `mongo`
 
 ![ScreenShot](imgs/mongo1.png)
 ![ScreenShot](imgs/mongo2.png)
 
-[OPCIONAL] Ara configurarem una regla en el firewall per a connectarnos al Mongo desde fora:
+[OPCIONAL] Ara configurarem una regla en el firewall per a connectar-nos al MongoDB des de fora:
 
 `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
 
@@ -57,6 +57,6 @@ A continuació executarem la seguent comanda per entrar a Mongo:
 
 ### FITXER DE CONFIGURACIÓ
 
-El fitxer de configuracio de MongoDB el trobarem a : `/etc/mongodb.conf`
+El fitxer de configuració de MongoDB el trobarem a: `/etc/mongodb.conf`
 
 ![ScreenShot](imgs/config_mongo.png)

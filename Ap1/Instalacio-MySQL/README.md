@@ -1,12 +1,12 @@
-# INSTALACIÓ MYSQL
+# INSTAL·LACIÓ MYSQL
 
-## INSTALACIÓ
+## INSTAL·LACIÓ
 
-[OPCIONAL] Es molt recomenable executar la seguent comanda:
+[OPCIONAL] És molt recomanable executar la següent comanda:
 
 `yum update`
 
-Instalarem el mysql:
+Instal·larem el mysql:
 
 `yum -y install @mysql`
 
@@ -26,7 +26,7 @@ Ara aixecarem el servei de mysql i comprovarem l'estat:
 
 ![ScreenShot](imgs/statusMysql.png)
 
-## POSTINSTALACIÓ
+## POSTINSTAL·LACIÓ
 
 Iniciarem sessio amb el root a mysql, la contrasenya per defecte de root esta buida:
 
@@ -34,13 +34,13 @@ Iniciarem sessio amb el root a mysql, la contrasenya per defecte de root esta bu
 
 ![ScreenShot](imgs/iniciar_sesio_mysql.png)
 
-Per mes seguretat li asignarem una contrasenya a root:
+Per més seguretat li assignarem una contrasenya a root:
 
 `ALTER USER "root"@"localhost" IDENTIFIED BY "[PASSWORD]"`
 
 ![ScreenShot](imgs/cambiar_contra_root.png)
 
-I crearem un usuari amb tots els permisos per a connectarnos de forma remota i fer proves:
+I crearem un usuari amb tots els permisos per a connectar-nos de forma remota i fer proves:
 
 `CREATE USER "NOMUSUARI"@"[ LOCALHOST | % ]" IDENTIFIED BY "PASSWORD";`
 
@@ -48,7 +48,7 @@ I crearem un usuari amb tots els permisos per a connectarnos de forma remota i f
 
 ![ScreenShot](imgs/crear_asix.png)
 
-I crearem una regla al firewall per connectarnos desde fora:
+I crearem una regla al firewall per connectar-nos des de fora:
 
 `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
 
@@ -64,7 +64,7 @@ I crearem una regla al firewall per connectarnos desde fora:
 
 ### CANVIAR EL PORT DE MYSQL
 
-Per canviar el port del mysql anirem al fitxer de configuracio i afegirem el seguent.
+Per canviar el port del mysql anirem al fitxer de configuració i afegirem el següent.
 
 `port=[port]`
 
@@ -72,7 +72,7 @@ Per canviar el port del mysql anirem al fitxer de configuracio i afegirem el seg
 
 ### ON GUARDA MYSQL ELS FITXERS DE DADES?
 
-Anirem a la ruta `/etc/mysql.cnf.d` i entrarem al fitxer `mysql-server.cnf` i buscarem la linia que posa `datadir=[ruta]`
+Anirem a la ruta `/etc/mysql.cnf.d` i entrarem al fitxer `mysql-server.cnf` i buscarem la línia que posa `datadir=[ruta]`
 
 ![ScreenShot](imgs/datadir.png)
 
