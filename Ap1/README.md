@@ -43,7 +43,7 @@ Ara farem click a l'icona del nostre perfil, i entrarem a l'apartat de "subscrip
 
 ![ScreenShot](imgs/subscriptions_redhat.png)
 
-Ara anirem a l'apartat de "Active Subscriptions"
+A continuació anirem a l'apartat de "Active Subscriptions"
 
 ![ScreenShot](imgs/subs_activas_redhat.png)
 
@@ -51,7 +51,7 @@ I ens ha d'apareixer la subscripcio "Red Hat Developer Subscription for Individu
 
 ![ScreenShot](imgs/subs_ok_redhat.png)
 
-Ara un cop tinguem instalat el redhat, executarem les seguents comandes per a registrar la maquina amb el nostre usuari:
+Un cop tinguem instalat el redhat, executarem les seguents comandes per a registrar la maquina amb el nostre usuari:
 
 `subscription-manager register` (Ens demanara usuari i password)
 
