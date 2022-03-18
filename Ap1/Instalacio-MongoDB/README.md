@@ -50,6 +50,7 @@ A continuació executarem la seguent comanda per entrar a Mongo:
 [OPCIONAL] Ara configurarem una regla en el firewall per a connectarnos al Mongo desde fora:
 
 `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+
 `firewall-cmd --reload`
 
 ![ScreenShot](imgs/firewall.png)
