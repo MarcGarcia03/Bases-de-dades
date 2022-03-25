@@ -89,3 +89,11 @@ Indicarem a partir de cuants segons guardará la sentencia en el log
 `long_query_time = 2`
 
 ![ScreenShot](imgs/logsSlowQuery.png)
+
+### MODIFICAR EL FITXER my.cnf
+
+Ara anirem al fitxer `my.cnf` i afegirem el seguent, per cuan el servei de Percona arranqui apliqui la configuració del fitxer `logs.cnf`
+
+`!includedir /etc/percona-server`
+
+![ScreenShot](imgs/includedir.png)
