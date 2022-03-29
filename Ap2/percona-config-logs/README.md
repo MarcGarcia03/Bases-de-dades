@@ -38,29 +38,9 @@ Crearem el directori `percona-server`, i a continuació crearem el fitxer `logs.
 
 Ara editarem el fitxer `nano logs.cnf` i afegirem el seguent codi
 
-### Pel log de Binary:
+`[mysqld]`
 
-Indicarem la ruta del log
-
-`log_bin_basename = /var/lib/mysql/binlog`
-
-Indicarem la ruta del index
-
-`log_bin_index = /var/lib/mysql/binlog.index`
-
-Posem limit de dies que volem que guardi log
-
-`expire_logs_days = 10`
-
-Posem limit a la mida del fitxer de log
-
-`max_binlog_size  = 100M`
-
-Posem el format en el que volem que guardi el log [statement | row | mixed]
-
-`binlog_format = mixed`
-
-![ScreenShot](imgs/logsBinary.png)
+![ScreenShot](imgs/logsCnf.png)
 
 ### Pel log General
 
