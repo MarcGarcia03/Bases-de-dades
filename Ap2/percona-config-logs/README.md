@@ -94,11 +94,12 @@ Igual que en primer pas mirarem les variables per verificar que els canvis que h
 
 ![ScreenShot](imgs/buscarSlowQuery2.png)
 
-## DESACTIVAR ELS LOGS ACTIVATS anteriorment
+## DESACTIVAR ELS LOGS ACTIVATS ANTERIORMENT
 
 Per desactivar els log que hem activat simplement haurem d'anar al fitxer `logs.cnf` i modificar els seguent
 
 ### GENERAL LOG
+
 ~~`general_log = 1`~~
 
 `general_log = 0`
@@ -112,3 +113,35 @@ Per desactivar els log que hem activat simplement haurem d'anar al fitxer `logs.
 `slow_query_log = 0`
 
 ![ScreenShot](imgs/desactivarSlowQuery.png)
+
+Un cop hàgem modificat el codi, haurem de reiniciar el servei de mysql per que funcioni amb la comanda `systemctl restart mysqld`
+
+## ACTIVAR ELS LOGS EN TEMPS D'EXECUCIÓ
+
+Entrarem al mysql i executarem el seguent:
+
+### Pel log SlowQuery
+
+`SET GLOBAL slow_query_log = 1`
+
+![ScreenShot](imgs/setSlowQuery.png)
+
+### Pel log General
+
+`SET GLOBAL general_log = 1`
+
+![ScreenShot](imgs/setGeneral.png)
+
+Ara canviarem el desti del log de un fitxer per una taula
+
+![ScreenShot](imgs/log_output.png)
+
+Per veure aquesta taula executarem la seguent comanda:
+
+`SELECT * FROM mysql.general_log;`
+
+![ScreenShot](imgs/taulaGeneral.png)
+
+## CARREGAR LA BD Sakila PER FER PROVES
+
+Descarregarem l'arxiu 
