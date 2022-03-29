@@ -77,3 +77,38 @@ Ara anirem al fitxer `my.cnf` i afegirem el seguent, per cuan el servei de Perco
 `!includedir /etc/percona-server`
 
 ![ScreenShot](imgs/includedir.png)
+
+## COMPROVAR QUE ELS CANVIS QUE HEM FET FUNCIONAN
+
+Igual que en primer pas mirarem les variables per verificar que els canvis que hem fet han funcionat haurem de reiniciar el servei de mysql amb la comanda `systemctl status mysqld`
+
+### Pel log General
+
+`SHOW VARIABLES LIKE '%general%';`
+
+![ScreenShot](imgs/buscarGeneral2.png)
+
+### Pel log SlowQuery
+
+`SHOW VARIABLES LIKE '%slow_query%';`
+
+![ScreenShot](imgs/buscarSlowQuery2.png)
+
+## DESACTIVAR ELS LOGS ACTIVATS anteriorment
+
+Per desactivar els log que hem activat simplement haurem d'anar al fitxer `logs.cnf` i modificar els seguent
+
+### GENERAL LOG
+~~`general_log = 1`~~
+
+`general_log = 0`
+
+![ScreenShot](imgs/desactivarGeneral.png)
+
+### SLOWQUERY LOG
+
+~~`slow_query_log = 1`~~
+
+`slow_query_log = 0`
+
+![ScreenShot](imgs/desactivarSlowQuery.png)
