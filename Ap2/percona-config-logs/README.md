@@ -144,4 +144,10 @@ Per veure aquesta taula executarem la seguent comanda:
 
 ## CARREGAR LA BD Sakila PER FER PROVES
 
-Descarregarem l'arxiu 
+Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aqui</a>
+
+Localitzarem on esta l'archiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db.tar.gz`
+
+I a continuacio executarem la comanda `spc` per transferir l'arxiu de forma segura
+
+`scp -r C:\Users\Marc\Downloads\sakila-db.tar.gz root@192.168.1.13`
