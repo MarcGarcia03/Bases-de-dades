@@ -128,11 +128,13 @@ Entrarem al mysql i executarem el seguent:
 
 ### Pel log General
 
-`SET GLOBAL general_log = 1`
+`SET GLOBAL general_log = 1;`
 
 ![ScreenShot](imgs/setGeneral.png)
 
 Ara canviarem el desti del log de un fitxer per una taula
+
+`SET GLOBAL log_output = "TABLE";`
 
 ![ScreenShot](imgs/log_output.png)
 
@@ -172,3 +174,10 @@ I executarem el seguent sentencia:
 
 ![ScreenShot](imgs/import.png)
 
+## COMPTAR EL NUMERO DE CREATE TABLES DINS DEL GENRAL LOG
+
+Per comptar el numero de CREATE TABLES que hi ha en la taula del general log ho farem amb la seguent sentencia:
+
+```SELECT COUNT(CONVERT(CAST(CONVERT(argument USING latin1) AS BINARY) USING utf8)) AS argument FROM mysql.general_log WHERE argument LIKE '%CREATE TABLE%';```
+
+![ScreenShot](imgs/createTable.png)
