@@ -150,4 +150,25 @@ Localitzarem on esta l'archiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db
 
 I a continuacio executarem la comanda `spc` per transferir l'arxiu de forma segura
 
-`scp -r C:\Users\Marc\Downloads\sakila-db.tar.gz root@192.168.1.13`
+`scp -r <ruta maquina local> root@192.168.1.13:<ruta maquina origen>`
+
+![ScreenShot](imgs/scp.png)
+
+Ara ens situarem en la carpeta on haguem enviat el arxiu i descomprimirem el arxiu
+
+`tar -xzvf sakila-db.tar.gz`
+
+I ens creará una carpeta amb els arxius que necesitem
+
+![ScreenShot](imgs/descomprimim.png)
+
+A continuació anirem al Percona i importarem la BBDD
+
+`mysql -u <usuari> -p`
+
+I executarem el seguent sentencia:
+
+`SOURCE <ruta dels fitxers descomprimits>/sakila-schema.sql;`
+
+![ScreenShot](imgs/import.png)
+
