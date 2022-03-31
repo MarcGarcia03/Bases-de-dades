@@ -181,3 +181,65 @@ Per comptar el numero de CREATE TABLES que hi ha en la taula del general log ho 
 ```SELECT COUNT(CONVERT(CAST(CONVERT(argument USING latin1) AS BINARY) USING utf8)) AS argument FROM mysql.general_log WHERE argument LIKE '%CREATE TABLE%';```
 
 ![ScreenShot](imgs/createTable.png)
+
+## COMPROVAR EL SLOW QUERY LOG
+
+Per comprovar que l'Slow Query Log funciona farem el seguent
+
+Executarem una sentencia amb el parametre `SLEEP(<segons>)`:
+
+`SELECT SLEEP(5);`
+
+![ScreenShot](imgs/sleep.png)
+
+Ara anirem el log i comprovarem que ha registrat aquesta sentencia
+
+`cat <ruta del log>`
+
+![ScreenShot](imgs/logSlowResultat.png)
+
+[OPCIONAL] Si no apareix la sentencia que hem executat, provarem el seguent:
+
+Anirem al Percona i posarem el `log_output` en mode FILE, ja que aquest parametre no nomes afecta al general log
+
+`SET GLOBAL log_output = "FILE";`
+
+I tornarem a comprovar
+
+## COMPROVAR EL BINARY LOG
+
+Primer comprovarem que tenim el log activat
+
+`SHOW VARIABLES LIKE '%log_bin%';`
+
+![ScreenShot](imgs/comprovarBinary.png)
+
+A continuació esborrarem tots els logs amb la sentencia RESET MASTER
+
+`RESET MASTER;`
+
+![ScreenShot](imgs/resetMaster.png)
+
+Ara crearem i esborrarem una base de dades:
+
+`CREATE DATABASE foo;`
+
+`DROP DATABASE foo;`
+
+![ScreenShot](imgs/dbFoo.png)
+
+A continuació comprovarem les sentecies que hem executat en quin log estan
+
+![ScreenShot](imgs/binlogEvents.png)
+
+Com veiem en l'imatge tenim les sentencies en el binlog 1
+
+Ara forçarem el mysql per que utilizi nous axius logs amb la sentencia FLUSH LOGS
+
+`FLUSH LOGS;`
+
+![ScreenShot](imgs/flushLogs.png)
+
+Tornem a crear i esborrar una base de dades
+
+![ScreenShot](imgs/dbBar.png)
