@@ -150,7 +150,7 @@ Localitzarem on esta l'archiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db
 
 I a continuacio executarem la comanda `spc` per transferir l'arxiu de forma segura
 
-`scp -r <ruta maquina local> root@192.168.1.13:<ruta maquina origen>`
+`scp -r <ruta maquina local> <usuari maquina desti>@<ip maquina desti>:<ruta maquina desti>`
 
 ![ScreenShot](imgs/scp.png)
 
