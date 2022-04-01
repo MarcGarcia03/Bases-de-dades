@@ -146,7 +146,7 @@ Per veure aquesta taula executarem la seguent comanda:
 
 ## CARREGAR LA BD Sakila PER FER PROVES
 
-Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aqui</a>
+Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aqui</a> (També esta en aquest mateix git)
 
 Localitzarem on esta l'archiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db.tar.gz`
 
