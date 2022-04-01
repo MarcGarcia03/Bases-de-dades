@@ -269,3 +269,21 @@ A continuació esborrarem el primer binlog, amb la seguent comnada:
 `rm /var/lib/mysql/binlog.000001`
 
 ![ScreenShot](imgs/rmBinlog1.png)
+
+Per visualitzar el log ho farem amb l'eina mysqlbinlog, amb la seguent comanda:
+
+`mysqlbinlog binlog.0000002`
+
+![ScreenShot](imgs/mysqlbinlogResultat.png)
+
+Per identificar el numero d'event de la sentencia `CREATE DATABASE` ens fixarem en una linia anterior a la de `CREATE DATABASE` que comença per `# at ...` i el numero que apareix es el numero d'event
+
+![ScreenShot](imgs/eventCreatedb.png)
+
+## DESACTIVAR BINARY LOG NOMES EN UNA SESSIÓ
+
+Per desactivar el binary log nomes en una sessió haurem d'executar la seguent sentencia:
+
+`SET sql_log_bin = OFF;`
+
+![ScreenShot](imgs/desactivarBinlog.png)
