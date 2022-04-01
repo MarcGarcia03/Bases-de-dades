@@ -230,16 +230,36 @@ Ara crearem i esborrarem una base de dades:
 
 A continuació comprovarem les sentecies que hem executat en quin log estan
 
+`SHOW BINLOG EVENTS;`
+
 ![ScreenShot](imgs/binlogEvents.png)
 
-Com veiem en l'imatge tenim les sentencies en el binlog 1
+Com veiem en l'imatge anterior tenim les sentencies en el binlog 1
 
-Ara forçarem el mysql per que utilizi nous axius logs amb la sentencia FLUSH LOGS
+Ara forçarem el mysql per que utilitzi nous axius logs amb la sentencia FLUSH LOGS
 
-`FLUSH LOGS;`
+Si fem `FLUSH LOGS;` ens canviará coses de varios logs, i nosaltres estem fent proves amb el Binary Log, per tant farem el seguent
+
+`FLUSH BINARY LOGS;`
 
 ![ScreenShot](imgs/flushLogs.png)
 
 Tornem a crear i esborrar una base de dades
 
+`CREATE DATABASE bar;`
+
+`DROP DATABASE bar;`
+
 ![ScreenShot](imgs/dbBar.png)
+
+Ara revisarem el segon binlog amb la sentencia:
+
+`SHOW BINLOG EVENTS IN 'binlog.000002';`
+
+![ScreenShot](imgs/binLog2.png)
+
+Per veure tots els log que hi han, farem el seguent
+
+`ls /var/lib/mysql |grep bin`
+
+![ScreenShot](imgs/lsBinlog.png)
