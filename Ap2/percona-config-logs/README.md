@@ -252,14 +252,20 @@ Tornem a crear i esborrar una base de dades
 
 ![ScreenShot](imgs/dbBar.png)
 
-Ara revisarem el segon binlog amb la sentencia:
-
-`SHOW BINLOG EVENTS IN 'binlog.000002';`
-
-![ScreenShot](imgs/binLog2.png)
-
 Per veure tots els log que hi han, farem el seguent
 
 `ls /var/lib/mysql |grep bin`
 
 ![ScreenShot](imgs/lsBinlog.png)
+
+Ara revisarem el segon binlog (amb la comanda anterior hem vist que es el 000002) amb la sentencia:
+
+`SHOW BINLOG EVENTS IN 'binlog.000002';`
+
+![ScreenShot](imgs/binLog2.png)
+
+A continuació esborrarem el primer binlog, amb la seguent comnada:
+
+`rm /var/lib/mysql/binlog.000001`
+
+![ScreenShot](imgs/rmBinlog1.png)
