@@ -1,18 +1,18 @@
 # TASQUES DE CONFIGURACIÓ I COMPROVACIÓ DE LOGS
 
-## LOGS ACTIVATS PERDEFECTE
+## LOGS ACTIVATS PER DEFECTE
 
-Per veure els logs que te el Percona per defecte entrarem al percona `mysql -u root -p` i executarem les seguents comandes:
+Per veure els logs que té el Percona per defecte entrarem al percona `mysql -u root -p` i executarem les següents comandes:
 
 ### Pel log d'Errors:
 
-Aquest log sempre ha d'estar activat (i ve activat per defecte) perque si el servei de percona falla i no inicia, en aquest log prodrem trovar l'error
+Aquest log sempre ha d'estar activat (i ve activat per defecte) perquè si el servei de percona falla i no inicia, en aquest log podrem trobar l'error
 
 ### Pel log de Binary:
 
 `SHOW VARIABLES LIKE '%log_bin%';`
 
-I anirem a buscar les linies marcades a la imatge
+I anirem a buscar les línies marcades a la imatge
 
 ![ScreenShot](imgs/buscarBinary.png)
 
@@ -36,7 +36,7 @@ Crearem el directori `percona-server`, i a continuació crearem el fitxer `logs.
 
 ![ScreenShot](imgs/crearLogscnf.png)
 
-Ara editarem el fitxer `nano logs.cnf` i afegirem el seguent codi
+Ara editarem el fitxer `nano logs.cnf` i afegirem el següent codi
 
 `[mysqld]`
 
@@ -64,7 +64,7 @@ Indicarem la ruta del log
 
 `slow-query_log_file = /var/lib/mysql/localhost-slow.log`
 
-Indicarem a partir de cuants segons guardará la sentencia en el log
+Indicarem a partir de quants segons guardarà la sentència en el log
 
 `long_query_time = 2`
 
@@ -72,7 +72,7 @@ Indicarem a partir de cuants segons guardará la sentencia en el log
 
 ### MODIFICAR EL FITXER my.cnf
 
-Ara anirem al fitxer `my.cnf` i afegirem el seguent, per cuan el servei de Percona arranqui apliqui la configuració del fitxer `logs.cnf`
+Ara anirem al fitxer `my.cnf` i afegirem el seguent, per quan el servei de Percona arranqui apliqui la configuració del fitxer `logs.cnf`
 
 `!includedir /etc/percona-server`
 
@@ -114,11 +114,11 @@ Per desactivar els log que hem activat simplement haurem d'anar al fitxer `logs.
 
 ![ScreenShot](imgs/desactivarSlowQuery.png)
 
-Un cop hàgem modificat el codi, haurem de reiniciar el servei de mysql per que funcioni amb la comanda `systemctl restart mysqld`
+Un cop haguem modificat el codi, haurem de reiniciar el servei de mysql perquè funcioni amb la comanda `systemctl restart mysqld`
 
 ## ACTIVAR ELS LOGS EN TEMPS D'EXECUCIÓ
 
-Entrarem al mysql i executarem el seguent:
+Entrarem al mysql i executarem el següent:
 
 ### Pel log SlowQuery
 
@@ -132,13 +132,13 @@ Entrarem al mysql i executarem el seguent:
 
 ![ScreenShot](imgs/setGeneral.png)
 
-Ara canviarem el desti del log de un fitxer per una taula
+Ara canviarem el destí del log d'un fitxer per una taula
 
 `SET GLOBAL log_output = "TABLE";`
 
 ![ScreenShot](imgs/log_output.png)
 
-Per veure aquesta taula executarem la seguent comanda:
+Per veure aquesta taula executarem la següent comanda:
 
 `SELECT * FROM mysql.general_log;`
 
@@ -146,21 +146,21 @@ Per veure aquesta taula executarem la seguent comanda:
 
 ## CARREGAR LA BD Sakila PER FER PROVES
 
-Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aqui</a> (També esta en aquest mateix git)
+Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aquí</a> (També està en aquest mateix git)
 
-Localitzarem on esta l'archiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db.tar.gz`
+Localitzarem on està l'arxiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db.tar.gz`
 
-I a continuacio executarem la comanda `spc` per transferir l'arxiu de forma segura
+I a continuació executarem la comanda `spc` per transferir l'arxiu de forma segura
 
 `scp -r <ruta maquina local> <usuari maquina desti>@<ip maquina desti>:<ruta maquina desti>`
 
 ![ScreenShot](imgs/scp.png)
 
-Ara ens situarem en la carpeta on haguem enviat el arxiu i descomprimirem el arxiu
+Ara ens situarem en la carpeta on hàgem enviat l'arxiu i descomprimirem l'arxiu
 
 `tar -xzvf sakila-db.tar.gz`
 
-I ens creará una carpeta amb els arxius que necesitem
+I ens crearà una carpeta amb els arxius que necessitem
 
 ![ScreenShot](imgs/descomprimim.png)
 
@@ -168,15 +168,15 @@ A continuació anirem al Percona i importarem la BBDD
 
 `mysql -u <usuari> -p`
 
-I executarem el seguent sentencia:
+I executarem el següent sentència:
 
 `SOURCE <ruta dels fitxers descomprimits>/sakila-schema.sql;`
 
 ![ScreenShot](imgs/import.png)
 
-## COMPTAR EL NUMERO DE CREATE TABLES DINS DEL GENRAL LOG
+## COMPTAR EL NÚMERO DE CREATE TABLES DINS DEL GENRAL LOG
 
-Per comptar el numero de CREATE TABLES que hi ha en la taula del general log ho farem amb la seguent sentencia:
+Per comptar el número de CREATE TABLES que hi ha en la taula del general log ho farem amb la següent sentència:
 
 ```SELECT COUNT(CONVERT(CAST(CONVERT(argument USING latin1) AS BINARY) USING utf8)) AS argument FROM mysql.general_log WHERE argument LIKE '%CREATE TABLE%';```
 
@@ -184,23 +184,23 @@ Per comptar el numero de CREATE TABLES que hi ha en la taula del general log ho 
 
 ## COMPROVAR EL SLOW QUERY LOG
 
-Per comprovar que l'Slow Query Log funciona farem el seguent
+Per comprovar que l'Slow Query Log funciona farem el següent
 
-Executarem una sentencia amb el parametre `SLEEP(<segons>)`:
+Executarem una sentència amb el paràmetre `SLEEP(<segons>)`:
 
 `SELECT SLEEP(5);`
 
 ![ScreenShot](imgs/sleep.png)
 
-Ara anirem el log i comprovarem que ha registrat aquesta sentencia
+Ara anirem el log i comprovarem que ha registrat aquesta sentència
 
 `cat <ruta del log>`
 
 ![ScreenShot](imgs/logSlowResultat.png)
 
-[OPCIONAL] Si no apareix la sentencia que hem executat, provarem el seguent:
+[OPCIONAL] Si no apareix la sentència que hem executat, provarem el seguent:
 
-Anirem al Percona i posarem el `log_output` en mode FILE, ja que aquest parametre no nomes afecta al general log
+Anirem al Percona i posarem el 'log_output' en mode FILE, ja que aquest paràmetre no només afecta al general log
 
 `SET GLOBAL log_output = "FILE";`
 
@@ -214,7 +214,7 @@ Primer comprovarem que tenim el log activat
 
 ![ScreenShot](imgs/comprovarBinary.png)
 
-A continuació esborrarem tots els logs amb la sentencia RESET MASTER
+A continuació esborrarem tots els logs amb la sentència RESET MASTER
 
 `RESET MASTER;`
 
@@ -228,15 +228,15 @@ Ara crearem i esborrarem una base de dades:
 
 ![ScreenShot](imgs/dbFoo.png)
 
-A continuació comprovarem les sentecies que hem executat en quin log estan
+A continuació comprovarem les sentències que hem executat en quin log estan
 
 `SHOW BINLOG EVENTS;`
 
 ![ScreenShot](imgs/binlogEvents.png)
 
-Com veiem en l'imatge anterior tenim les sentencies en el binlog 1
+Com veiem en l'imatge anterior tenim les sentències en el binlog 1
 
-Ara forçarem el mysql per que utilitzi nous axius logs amb la sentencia FLUSH LOGS
+Ara forçarem el mysql per que utilitzi nous arxius logs amb la sentència FLUSH LOGS
 
 Si fem `FLUSH LOGS;` ens canviará coses de varios logs, i nosaltres estem fent proves amb el Binary Log, per tant farem el seguent
 
@@ -258,31 +258,31 @@ Per veure tots els log que hi han, farem el seguent
 
 ![ScreenShot](imgs/lsBinlog.png)
 
-Ara revisarem el segon binlog (amb la comanda anterior hem vist que es el 000002) amb la sentencia:
+Ara revisarem el segon binlog (amb la comanda anterior hem vist que es el 000002) amb la sentència:
 
 `SHOW BINLOG EVENTS IN 'binlog.000002';`
 
 ![ScreenShot](imgs/binLog2.png)
 
-A continuació esborrarem el primer binlog, amb la seguent comnada:
+A continuació esborrarem el primer binlog, amb la següent comanda:
 
 `rm /var/lib/mysql/binlog.000001`
 
 ![ScreenShot](imgs/rmBinlog1.png)
 
-Per visualitzar el log ho farem amb l'eina mysqlbinlog, amb la seguent comanda:
+Per visualitzar el log ho farem amb l'eina mysqlbinlog, amb la següent comanda:
 
 `mysqlbinlog binlog.0000002`
 
 ![ScreenShot](imgs/mysqlbinlogResultat.png)
 
-Per identificar el numero d'event de la sentencia `CREATE DATABASE` ens fixarem en una linia anterior a la de `CREATE DATABASE` que comença per `# at ...` i el numero que apareix es el numero d'event
+Per identificar el número d'event de la sentència `CREATE DATABASE` ens fixarem en una línia anterior a la de `CREATE DATABASE` que comença per `# at ...` i el número que apareix es el número d'event
 
 ![ScreenShot](imgs/eventCreatedb.png)
 
 ## DESACTIVAR BINARY LOG NOMES EN UNA SESSIÓ
 
-Per desactivar el binary log nomes en una sessió haurem d'executar la seguent sentencia:
+Per desactivar el binary log només en una sessió haurem d'executar la següent sentència:
 
 `SET sql_log_bin = OFF;`
 
