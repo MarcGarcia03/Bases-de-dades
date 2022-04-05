@@ -4,7 +4,7 @@
 
 Primer comprovarem que podem interceptar dades si realitzem una connexió no segura, ens connectarem des del Workbench modificant la configuració per defecte
 
-![ScreenShot](imgs/connexióWorkbench.png)
+![ScreenShot](imgs/connexioWorkbench.png)
 
 A continuació amb el Wireshark intentarem capturar una consulta i la resposta del mysql
 
@@ -30,7 +30,7 @@ RESPOSTA
 
 Ens connectarem al servidor amb el FileZilla al servidor Percona
 
-![ScreenShot](imgs/connexióFilezilla.png)
+![ScreenShot](imgs/connexioFilezilla.png)
 
 Al connectar-nos per primer cop ens preguntarà si confiem en el server, marcarem Aceptar
 
