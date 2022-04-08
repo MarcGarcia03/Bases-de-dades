@@ -135,3 +135,33 @@ Ara anirem a buscar els fitxers de dades
 El numero de l'esquerre son els Kb que pesen els arxius
 
 ![ScreenShot](imgs/pesFitxers.png)
+
+FALTA COMPRESSIO PER DEFECTE
+
+Per deshabilitar la compresio dels fitxers de les taules, anirem al fitxer `my.cnf`, i afegirem el seguent
+
+```
+rocksdb_default_cf_options=block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=1};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;compaction_pri=kMinOverlappingRatio;compression=kNoCompression
+```
+
+![ScreenShot](imgs/deshabilitarCompresio.png)
+
+I reiniciarem el servei de Percona
+
+`systemctl restart mysqld`
+
+![ScreenShot](imgs/reiniciarPercona.png)
+
+I per comprovar que aixo ha funcionat, crearem una taula, afegirem dades i anirem a mirar el fitxer amb aquestes dades
+
+`CREATE TABLE <NomTaula> (<camp1> <parametre1>..., ...)`
+
+![ScreenShot](imgs/crearTaula.png)
+
+`INSERT INTO <NomTaula> VALUES(<camp1>,'<camp2>'),...;`
+
+![ScreenShot](imgs/insertProva2.png)
+
+`cd /var/lib/mysql/<NomDB>`
+
+![ScreenShot](imgs/.png)
