@@ -92,7 +92,7 @@ I una taula amb camps NOT NULL, ja que el motor CSV no suporta camps Nulls
 
 Introduirem dades en la taula
 
-`INSERT INTO prova VALUES(<camp1>,'<camp2>'),(<camp1>,'<camp2>');`
+`INSERT INTO <NomTaula> VALUES(<camp1>,'<camp2>'),(<camp1>,'<camp2>');`
 
 ![ScreenShot](imgs/insertProva.png)
 
@@ -107,6 +107,31 @@ Ara anirem a buscar l'arxiu CSV i l'obrirem
 L'arxiu CSV esta situat a la seguent ruta: `/var/lib/mysql/<NomDB>/<NomTaula>.CSV`
 
 ![ScreenShot](imgs/nanoCSV.png)
+
 ![ScreenShot](imgs/CSV.png)
 
 ## STORAGE ENGINE MyRocks
+
+Al final del primer apartat posem el MyRocks per defecte, si no ho fem els seguents pasos no funcionaran
+
+Ara en la Base de dades que hem creat anteriorment afegirem 3 taule i afegirem dades a les 3 taules
+
+`USE <NomDB>`
+
+`CREATE TABLE <NomTaula> (<camp1> <parametre1>..., ...)`
+
+![ScreenShot](imgs/crearTaules.png)
+
+`INSERT INTO <NomTaula> VALUES(<camp1>,'<camp2>'),...;`
+
+![ScreenShot](imgs/insertMyRocks.png)
+
+Ara anirem a buscar els fitxers de dades
+
+`cd /var/lib/mysql/<NomDB>`
+
+`du -sh *`
+
+El numero de l'esquerre son els Kb que pesen els arxius
+
+![ScreenShot](imgs/pesFitxers.png)
