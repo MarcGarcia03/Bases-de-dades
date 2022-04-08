@@ -77,3 +77,36 @@ Finalment reiniciarem el servei de Percona i comprovarem que tot ha funcionat
 ![ScreenShot](imgs/comprovaMyRocks.png)
 
 ## COM UTILITZAR EL STORAGE ENGINE CSV
+
+Crearem una base de dades per proves
+
+`CREATE DATABASE <NomDB>`
+
+![ScreenShot](imgs/DBprova.png)
+
+I una taula amb camps NOT NULL, ja que el motor CSV no suporta camps Nulls
+
+`CREATE TABLE <NomTaula> (<camp1> <parametre1>... NOT NULL, <camp2> <parametre1>... NOT NULL)`
+
+![ScreenShot](imgs/taulaProva.png)
+
+Introduirem dades en la taula
+
+`INSERT INTO prova VALUES(<camp1>,'<camp2>'),(<camp1>,'<camp2>');`
+
+![ScreenShot](imgs/insertProva.png)
+
+I mirarem la taula
+
+`SELECT * FROM <NomTaula>;`
+
+![ScreenShot](imgs/selectProva.png)
+
+Ara anirem a buscar l'arxiu CSV i l'obrirem
+
+L'arxiu CSV esta situat a la seguent ruta: `/var/lib/mysql/<NomDB>/<NomTaula>.CSV`
+
+![ScreenShot](imgs/nanoCSV.png)
+![ScreenShot](imgs/CSV.png)
+
+## STORAGE ENGINE MyRocks
