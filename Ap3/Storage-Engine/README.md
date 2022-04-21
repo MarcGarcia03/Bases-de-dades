@@ -136,12 +136,16 @@ El numero de l'esquerre son els Kb que pesen els arxius
 
 ![ScreenShot](imgs/pesFitxers.png)
 
-FALTA COMPRESSIO PER DEFECTE
+Per veure la compressio per defecte, executarem la seguent sentencia
+
+`SELECT * FROM information_schema.rocksdb_cf_options WHERE option_type LIKE '%ompression%' AND cf_name='default';`
+
+![ScreenShot](imgs/veureCompressioPerDefecte.png)
 
 Per deshabilitar la compresio dels fitxers de les taules, anirem al fitxer `my.cnf`, i afegirem el seguent
 
 ```
-rocksdb_default_cf_options=block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=1};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;compaction_pri=kMinOverlappingRatio;compression=kNoCompression
+rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max_bytes_for_level_base=512m;max_write_buffer_number=4;level0_file_num_compaction_trigger=4;level0_slowdown_writes_trigger=20;level0_stop_writes_trigger=30;max_write_buffer_number=4;block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=0};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;memtable_prefix_bloom_size_ratio=0.05;prefix_extractor=capped:12;compaction_pri=kMinOverlappingRatio;compression=kLZ4Compression;bottommost_compression=kLZ4Compression;compression_opts=-14:4:0"
 ```
 
 ![ScreenShot](imgs/deshabilitarCompresio.png)
@@ -152,16 +156,8 @@ I reiniciarem el servei de Percona
 
 ![ScreenShot](imgs/reiniciarPercona.png)
 
-I per comprovar que aixo ha funcionat, crearem una taula, afegirem dades i anirem a mirar el fitxer amb aquestes dades
+I per comprovar que aixo ha funcionat, tornarem a mirar el tipus de compressio estem utilitzant
 
-`CREATE TABLE <NomTaula> (<camp1> <parametre1>..., ...)`
+`SELECT * FROM information_schema.rocksdb_cf_options WHERE option_type LIKE '%ompression%' AND cf_name='default';`
 
-![ScreenShot](imgs/crearTaula.png)
-
-`INSERT INTO <NomTaula> VALUES(<camp1>,'<camp2>'),...;`
-
-![ScreenShot](imgs/insertProva2.png)
-
-`cd /var/lib/mysql/<NomDB>`
-
-![ScreenShot](imgs/.png)
+![ScreenShot](imgs/compressioCambiada.png)
