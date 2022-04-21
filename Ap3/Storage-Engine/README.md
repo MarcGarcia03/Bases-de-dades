@@ -150,6 +150,12 @@ rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max
 
 ![ScreenShot](imgs/deshabilitarCompresio.png)
 
+[OPCIONAL] Si volem cambiar a la compressio Zlib, anirem al fitxer `my.cnf`, i afegirem el seguent
+
+```
+rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max_bytes_for_level_base=512m;max_write_buffer_number=4;level0_file_num_compaction_trigger=4;level0_slowdown_writes_trigger=20;level0_stop_writes_trigger=30;max_write_buffer_number=4;block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=0};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;memtable_prefix_bloom_size_ratio=0.05;prefix_extractor=capped:12;compaction_pri=kMinOverlappingRatio;compression=kZlibCompression;bottommost_compression=kZlibCompression;compression_opts=-14:4:0"
+```
+
 I reiniciarem el servei de Percona
 
 `systemctl restart mysqld`
