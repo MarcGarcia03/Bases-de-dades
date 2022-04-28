@@ -167,3 +167,6 @@ I per comprovar que aixo ha funcionat, tornarem a mirar el tipus de compressio e
 `SELECT * FROM information_schema.rocksdb_cf_options WHERE option_type LIKE '%ompression%' AND cf_name='default';`
 
 ![ScreenShot](imgs/compressioCambiada.png)
+
+## INNODB
+
