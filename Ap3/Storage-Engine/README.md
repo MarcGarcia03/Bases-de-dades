@@ -170,3 +170,34 @@ I per comprovar que aixo ha funcionat, tornarem a mirar el tipus de compressio e
 
 ## INNODB
 
+### Desactivar l'opció que ve per defecte de innodb_file_per_table
+
+Anirem al my.cnf i afegirem el seguent:
+
+`innodb_file_per_table="OFF"`
+
+![ScreenShot](imgs/FilePerTableInno.png)
+
+Guardem els canvis i reiniciarem el servei de mysql
+
+`systemctl restart mysqld`
+
+![ScreenShot](imgs/reiniciarMysql.png)
+
+Entrarem al Mysql i executarem el seguent, per verificar que el que hem fet funciona:
+
+`SHOW VARIABLES LIKE '%file_per_table%';`
+
+![ScreenShot](imgs/VerificarFilePerTable.png)
+
+### Permisos directori /datadir
+
+Per veure el PATH del datadir anirem a l'arxiu /etc/my.cnf, i buscarem el parametre "datadir"
+
+![ScreenShot](imgs/mydatadir.png)
+
+Per veure els permisos del directori datadir executarem el seguent
+
+`ls <PATH>/.. -asil | grep mysql`
+
+![ScreenShot](imgs/datadir.png)
