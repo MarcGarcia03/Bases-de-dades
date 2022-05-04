@@ -201,3 +201,111 @@ Per veure els permisos del directori datadir executarem el seguent
 `ls <PATH>/.. -asil | grep mysql`
 
 ![ScreenShot](imgs/datadir.png)
+
+### Veure la mida perdefecte del tablespace de sistema
+
+Anirem al mysql i executarem la seguent sentencia
+
+`SHOW VARIABLES LIKE '%innodb_data%';`
+
+![ScreenShot](imgs/midaTablespace.png)
+
+### Importar la BD Sakila com a taules InnoDB
+
+Descarregarem l'arxiu <a href="https://downloads.mysql.com/docs/sakila-db.tar.gz">aquí</a> (També està en aquest mateix git)
+
+Localitzarem on està l'arxiu, en el meu cas: `C:\Users\Marc\Downloads\sakila-db.tar.gz`
+
+I a continuació executarem la comanda `spc` per transferir l'arxiu de forma segura
+
+`scp -r <ruta maquina local> <usuari maquina desti>@<ip maquina desti>:<ruta maquina desti>`
+
+![ScreenShot](imgs/scp.png)
+
+Ara ens situarem en la carpeta on hàgem enviat l'arxiu i descomprimirem l'arxiu
+
+`tar -xzvf sakila-db.tar.gz`
+
+I ens crearà una carpeta amb els arxius que necessitem
+
+![ScreenShot](imgs/descomprimim.png)
+
+Ara ens situarem a la carpeta que s'ens ha generat
+
+`cd sakila-db`
+
+I obrirem l'archiu sakila-schema.sql
+
+`nano sakila-schema.sql`´
+
+Un cop dins de l'archiu farem Ctrl + W, per buscar
+
+![ScreenShot](imgs/buscar.png)
+
+Ara baixarem fins on esta l'estructura de la taula que hem buscat, i afegirem el seguent
+
+`ENGINE=InnoDB`
+
+![ScreenShot](imgs/definimEngine.png)
+
+Guardem, i sortim
+
+A continuació anirem al Percona i importarem la BBDD
+
+`mysql -u <usuari> -p`
+
+I executarem el següent sentència:
+
+`SOURCE <ruta dels fitxers descomprimits>/sakila-schema.sql;`
+
+![ScreenShot](imgs/import.png)
+
+### On s'han guardat els fitxers de dades?
+
+Anirem a `/var/lib/mysql` per veure com s'han guardat les dades
+
+![ScreenShot](imgs/mirarFitxersDades.png)
+
+Entrarem a la carpeta de Sakila i mirarem que conte
+
+![ScreenShot](imgs/carpetaSakila.png)
+
+La carpeta sakila no conté res, per tant aixo vol dir que les dades estan guardades a l'archiu ibdata1, si mirem el que pesa aquest archiu veurem que pesa mes que el que pesa perdefecte (12M)
+
+![ScreenShot](imgs/pesIbdata1.png)
+
+## Cambiar la configuració del mysql
+
+### Canviar la localització del directori de dades a /hd-mysql
+
+Primer crearem la carpeta i posarem els permisos que tocan
+
+![ScreenShot](imgs/carpetaDataDir.png)
+
+![ScreenShot](imgs/canviarPermisos.png)
+
+![ScreenShot](imgs/permisosDataDir.png)
+
+Ara anirem a `my.cnf` i modificarem el parametre DataDir, per la carpeta que hem creat
+
+![ScreenShot](imgs/cambiemDataDir.png)
+
+I reiniciem el servei
+
+![ScreenShot](imgs/reiniciarMysql.png)
+
+Ara mirem la carpeta i ens ha generat el seguent
+
+![ScreenShot](imgs/despresDataDir.png)
+
+Finalment canviarem el socket, anirem al `my.cnf`, i modificarem el paramentre
+
+![ScreenShot](imgs/canviarSocket.png)
+
+I reiniciem el servei
+
+![ScreenShot](imgs/reiniciarMysql.png)
+
+Ara mirem la carpeta i ens ha generat el fitxer `mysql.sock`
+
+![ScreenShot](imgs/sock.png)
