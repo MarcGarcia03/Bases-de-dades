@@ -309,3 +309,79 @@ I reiniciem el servei
 Ara mirem la carpeta i ens ha generat el fitxer `mysql.sock`
 
 ![ScreenShot](imgs/sock.png)
+
+Si intentem entrar al MySQL, tindrem 2 problemas:
+
+Primer al cambiar el datadir hem perdut el password del root, i s'ens ha generat una de nova, per veure-la executarem el seguent:
+
+`cat /var/log/mysqld.log | grep generated`
+
+Si apareixen mes d'una agafarem la mes recent
+
+![ScreenShot](imgs/nouPass.png)
+
+Ara un cop tenim el password correcte, tampoc podem accedir a mysql
+
+![ScreenShot](imgs/errorSock.png)
+
+Per solucionar aixo anirem al `my.cnf` i afegirem el seguent
+
+```
+[client]
+
+socket=<PATH-NOU-SOCKET>
+```
+
+![ScreenShot](imgs/clientSocket.png)
+
+Per seguretat haurem de canviar la contrasenya
+
+![ScreenShot](imgs/canviarPassRoot.png)
+
+### Tenir 2 fitxers corresponents al Tablesace de sistema
+
+Apagarem la maquina, i afegirem 2 discos a la maquina (un per fitxer)
+
+![ScreenShot](imgs/afegirDisc.png)
+
+![ScreenShot](imgs/HardDisk.png)
+
+![ScreenShot](imgs/new.png)
+
+![ScreenShot](imgs/mida.png)
+
+![ScreenShot](imgs/nom.png)
+
+![ScreenShot](imgs/discosAfegits.png)
+
+Tornarem a encendre la maquina, i muntarem els discos
+
+Executarem el seguent, i buscarem els discos de 10Gb
+
+`fdisk -l`
+
+![ScreenShot](imgs/trobarDiscos.png)
+
+Un cop tenim els discos identificats, el fortmatarem
+
+`mkfs -t <format> <dispositiu>`
+
+![ScreenShot](imgs/formatemDiscos.png)
+
+Ara muntarem els discos en el `/etc/fstab`
+
+![ScreenShot](imgs/fstab.png)
+
+I reiniciarem la maquina
+
+`init 6`
+
+Ara canviarem el propietari i grup de `/disk1` i `/disk2`
+
+`chown mysql <PATH>`
+
+![ScreenShot](imgs/canviarPropietari.png)
+
+![ScreenShot](imgs/canviarGroup.png)
+
+A continuació anirem al my.cnf i modificarem el seguent
