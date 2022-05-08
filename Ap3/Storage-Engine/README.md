@@ -385,3 +385,46 @@ Ara canviarem el propietari i grup de `/disk1` i `/disk2`
 ![ScreenShot](imgs/canviarGroup.png)
 
 A continuació anirem al my.cnf i modificarem el seguent
+
+`innodb_data_file_path=ibdata1:12M;/disk1/ibdata2:50M;/disk2/ibdata3:50M:autoextend`
+
+I per fer que els fitxers creixin, afegirem el seguent parametre:
+
+`innodb-autoextend-increment=5`
+
+![ScreenShot](imgs/mycnf.png)
+
+### GERNERAR TABLESPACE PER TAULA EN UN ALTRE PATH
+
+Primer crearem la carpeta
+
+`mkdir tspaces`
+
+I li canviarem el propietari i grup
+
+`chown mysql /tspaces`
+`chgrp mysql /tspaces`
+
+A continuació anirem al `my.cnf` i modificarem el parametre `innodb_file_per_table` a "ON"
+
+![ScreenShot](imgs/innodbFileOn.png)
+
+I reiniciem el servei
+
+![ScreenShot](imgs/reiniciarMysql.png)
+
+Ara anirem a mysql i crearem una taula amb el parametre "DATA DIRECTORY"
+
+`CREATE TABLE prova (p1 INT PRIMARY KEY) DATA DIRECTORY = '/<PATH tspaces>';`
+
+![ScreenShot](imgs/createProva.png)
+
+Ara anirem a mirar la carpeta tspaces
+
+![ScreenShot](imgs/lstspaces.png)
+
+Entrem a la carpeta sakila, i aqui ens ha d'apareixer la taula
+
+![ScreenShot](imgs/lsSakila.png)
+
+### CREAR 2 TABLE SPACES I REPARTIR TAULES ENTRE TABLE SPACES
