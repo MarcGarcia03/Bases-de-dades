@@ -428,3 +428,11 @@ Entrem a la carpeta sakila, i aqui ens ha d'apareixer la taula
 ![ScreenShot](imgs/lsSakila.png)
 
 ### CREAR 2 TABLE SPACES I REPARTIR TAULES ENTRE TABLE SPACES
+
+Crearem les carpetes i cambiarem el propietari
+
+![ScreenShot](imgs/crearCarpetes.png)
+
+![ScreenShot](imgs/permisosCarpetes.png)
+
+Anirem al MySQL i crearem els tablespaces
