@@ -176,7 +176,7 @@ Anirem al my.cnf i afegirem el seguent:
 
 `innodb_file_per_table="OFF"`
 
-![ScreenShot](imgs/FilePerTableInno.png)
+![ScreenShot](imgs/filePerTableInno.png)
 
 Guardem els canvis i reiniciarem el servei de mysql
 
@@ -342,7 +342,7 @@ Per seguretat haurem de canviar la contrasenya
 
 Apagarem la maquina, i afegirem 2 discos a la maquina (un per fitxer)
 
-![ScreenShot](imgs/afegirDisc.png)
+![ScreenShot](imgs/AfegirDisc.png)
 
 ![ScreenShot](imgs/HardDisk.png)
 
