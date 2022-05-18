@@ -421,7 +421,7 @@ Ara anirem a mysql i crearem una taula amb el parametre "DATA DIRECTORY"
 
 Ara anirem a mirar la carpeta tspaces
 
-![ScreenShot](imgs/lstspaces.png)
+![ScreenShot](imgs/lsTspaces.png)
 
 Entrem a la carpeta sakila, i aqui ens ha d'apareixer la taula
 
