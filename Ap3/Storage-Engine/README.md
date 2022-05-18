@@ -188,7 +188,7 @@ Entrarem al Mysql i executarem el seguent, per verificar que el que hem fet func
 
 `SHOW VARIABLES LIKE '%file_per_table%';`
 
-![ScreenShot](imgs/VerificarFilePerTable.png)
+![ScreenShot](imgs/verificarFilePerTable.png)
 
 ### Permisos directori /datadir
 
