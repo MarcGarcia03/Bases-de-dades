@@ -427,12 +427,14 @@ Entrem a la carpeta sakila, i aqui ens ha d'apareixer la taula
 
 ![ScreenShot](imgs/lsSakila.png)
 
-### CREAR 2 TABLE SPACES I REPARTIR TAULES ENTRE TABLE SPACES
+### CREAR 2 TABLE SPACES I REPARTIR TAULES ENTRE TABLESPACES
 
-Crearem les carpetes i cambiarem el propietari
+Anirem al my.cnf i modificarem el parametre `innodb_diretories` i afegirem els directoris que utilitzarem com a tablespaces
 
-![ScreenShot](imgs/crearCarpetes.png)
+![ScreenShot](imgs/innodbDirectories.png)
 
-![ScreenShot](imgs/permisosCarpetes.png)
+Ara anirem al mysql i crearem els tablespaces
 
-Anirem al MySQL i crearem els tablespaces
+`CREATE TABLESPACE <nomTablespace> ADD DATAFILE '<path>' ENGINE=InnoDB;'`
+
+![ScreenShot](imgs/.png)
