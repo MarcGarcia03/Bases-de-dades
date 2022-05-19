@@ -435,6 +435,20 @@ Anirem al my.cnf i modificarem el parametre `innodb_diretories` i afegirem els d
 
 Ara anirem al mysql i crearem els tablespaces
 
-`CREATE TABLESPACE <nomTablespace> ADD DATAFILE '<path>' ENGINE=InnoDB;'`
+`CREATE TABLESPACE <nomTablespace> ADD DATAFILE '<path>' ENGINE=InnoDB;`
 
-![ScreenShot](imgs/.png)
+![ScreenShot](imgs/crearTS.png)
+
+I modificarem els tablespaces de cada taula
+
+`ALTER TABLE <nomTaula> TABLESPACE <nomTS>;`
+
+![ScreenShot](imgs/ts1.png)
+
+![ScreenShot](imgs/ts2.png)
+
+Ara intentarem realitzar operacions DML amb les taules
+
+`SELECT * FROM address a INNER JOIN city c ON a.city_id = c.city_id;`
+
+![ScreenShot](imgs/provaDML.png)
