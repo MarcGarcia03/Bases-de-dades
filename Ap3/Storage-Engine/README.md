@@ -447,8 +447,22 @@ I modificarem els tablespaces de cada taula
 
 ![ScreenShot](imgs/ts2.png)
 
-Ara intentarem realitzar operacions DML amb les taules
+Mirem la mida dels tspaces
+
+![ScreenShot](imgs/midaInicialTs.png)
+
+Ara realitzarem operacions DML amb taules de diferens tablespaces
 
 `SELECT * FROM address a INNER JOIN city c ON a.city_id = c.city_id;`
 
 ![ScreenShot](imgs/provaDML.png)
+
+```
+INSERT INTO address (address_id,address,district,city_id,phone,location) VALUES("10002","1234 Lloret de Mar","Girona","4","666666666",ST_GeomFromText('POINT(40.71727401 -74.00898606)', 0));
+```
+
+![ScreenShot](imgs/provaDML1.png)
+
+Tornem a mirar la mida dels tspaces
+
+![ScreenShot](imgs/midaTs.png)
