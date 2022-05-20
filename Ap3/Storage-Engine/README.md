@@ -2,17 +2,17 @@
 
 ## STORAGE ENGINES QUE PODEM UTILITZAR I MODIFICAR EL MOTOR DEFAULT
 
-Per veure els motors d'emmagatzematge que podem utilitzar, executarem la seguent sentencia
+Per veure els motors d'emmagatzematge que podem utilitzar, executarem la següent sentència
 
 `SHOW ENGINES;`
 
-Per veure quins motors podem utilitzar ens fixarem en l'apartat support en la captura, tot el que posi "YES" vol dir que el prodrem utilitzar
+Per veure quins motors podem utilitzar ens fixarem en l'apartat support en la captura, tot el que posi "YES" vol dir que el podrem utilitzar
 
 ![ScreenShot](imgs/showEngines.png)
 
-Amb la comanda anterior també podem saber quine el el Storage Engine per defecte
+Amb la comanda anterior també podem saber quin és l'Storage Engine per defecte
 
-En el cas de Percona el Storage Engine per defecte es: "InnoDB"
+En el cas de Percona el Storage Engine per defecte és: "InnoDB"
 
 ![ScreenShot](imgs/default.png)
 
@@ -20,7 +20,7 @@ Per canviar el motor per defecte ho podrem fer de 2 maneres:
 
 * ### TEMPORAL
 
-Executarem la seguent sentencia
+Executarem la següent sentència
 
 `SET default_storage_engine="<NOM_MOTOR>"`
 
@@ -32,7 +32,7 @@ Per verificar que ha funcionat tornarem a executar `SHOW ENGINES;`
 
 * ### PERMANENT
 
-Anirem al my.cnf i afegirem el parametre `default_storage_engine`
+Anirem al my.cnf i afegirem el paràmetre `default_storage_engine`
 
 `default_storage_engine="<NOM_MOTOR>"`
 
@@ -50,13 +50,13 @@ Per verificar que ha funcionat entrarem al mysql i tornarem a executar `SHOW ENG
 
 ## INSTALAR I ACTIVAR MyRocks
 
-Per instalar MyRocks executarem la seguent comanda
+Per instal·lar MyRocks executarem la següent comanda
 
 `sudo yum install percona-server-rocksdb -y`
 
 ![ScreenShot](imgs/MyRocks.png)
 
-Per activar MyRocks executarem la seguent comanda
+Per activar MyRocks executarem la següent comanda
 
 `ps-admin --enable-rocksdb -u root -p<PswUsuari>`
 
@@ -66,7 +66,7 @@ Posarem MyRocks com a motor per defecte
 
 ![ScreenShot](imgs/defaultMyRocks.png)
 
-Finalment reiniciarem el servei de Percona i comprovarem que tot ha funcionat
+Finalment, reiniciarem el servei de Percona i comprovarem que tot ha funcionat
 
 `systemctl restart mysqld`
 
@@ -84,7 +84,7 @@ Crearem una base de dades per proves
 
 ![ScreenShot](imgs/DBprova.png)
 
-I una taula amb camps NOT NULL, ja que el motor CSV no suporta camps Nulls
+I una taula amb camps NOT NULL, ja que el motor CSV no suporta camps NULLs
 
 `CREATE TABLE <NomTaula> (<camp1> <parametre1>... NOT NULL, <camp2> <parametre1>... NOT NULL)`
 
@@ -104,7 +104,7 @@ I mirarem la taula
 
 Ara anirem a buscar l'arxiu CSV i l'obrirem
 
-L'arxiu CSV esta situat a la seguent ruta: `/var/lib/mysql/<NomDB>/<NomTaula>.CSV`
+L'arxiu CSV està situat a la següent ruta: `/var/lib/mysql/<NomDB>/<NomTaula>.CSV`
 
 ![ScreenShot](imgs/nanoCSV.png)
 
@@ -112,9 +112,9 @@ L'arxiu CSV esta situat a la seguent ruta: `/var/lib/mysql/<NomDB>/<NomTaula>.CS
 
 ## STORAGE ENGINE MyRocks
 
-Al final del primer apartat posem el MyRocks per defecte, si no ho fem els seguents pasos no funcionaran
+Al final del primer apartat posem el MyRocks per defecte, si no ho fem els següents passos no funcionaran
 
-Ara en la Base de dades que hem creat anteriorment afegirem 3 taule i afegirem dades a les 3 taules
+Ara en la Base de dades que hem creat anteriorment afegirem 3 taules i afegirem dades a les 3 taules
 
 `USE <NomDB>`
 
@@ -132,17 +132,17 @@ Ara anirem a buscar els fitxers de dades
 
 `du -sh *`
 
-El numero de l'esquerre son els Kb que pesen els arxius
+El número de l'esquerre són els Kb que pesen els arxius
 
 ![ScreenShot](imgs/pesFitxers.png)
 
-Per veure la compressio per defecte, executarem la seguent sentencia
+Per veure la compressió per defecte, executarem la següent sentència
 
 `SELECT * FROM information_schema.rocksdb_cf_options WHERE option_type LIKE '%ompression%' AND cf_name='default';`
 
 ![ScreenShot](imgs/veureCompressioPerDefecte.png)
 
-Per deshabilitar la compresio dels fitxers de les taules, anirem al fitxer `my.cnf`, i afegirem el seguent
+Per deshabilitar la compressió dels fitxers de les taules, anirem al fitxer 'my.cnf', i afegirem el seguent
 
 ```
 rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max_bytes_for_level_base=512m;max_write_buffer_number=4;level0_file_num_compaction_trigger=4;level0_slowdown_writes_trigger=20;level0_stop_writes_trigger=30;max_write_buffer_number=4;block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=0};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;memtable_prefix_bloom_size_ratio=0.05;prefix_extractor=capped:12;compaction_pri=kMinOverlappingRatio;compression=kLZ4Compression;bottommost_compression=kLZ4Compression;compression_opts=-14:4:0"
@@ -150,7 +150,7 @@ rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max
 
 ![ScreenShot](imgs/deshabilitarCompresio.png)
 
-[OPCIONAL] Si volem cambiar a la compressio Zlib, anirem al fitxer `my.cnf`, i afegirem el seguent
+[OPCIONAL] Si volem canviar a la compressió Zlib, anirem al fitxer 'my.cnf', i afegirem el seguent.
 
 ```
 rocksdb_default_cf_options="write_buffer_size=256m;target_file_size_base=32m;max_bytes_for_level_base=512m;max_write_buffer_number=4;level0_file_num_compaction_trigger=4;level0_slowdown_writes_trigger=20;level0_stop_writes_trigger=30;max_write_buffer_number=4;block_based_table_factory={cache_index_and_filter_blocks=1;filter_policy=bloomfilter:10:false;whole_key_filtering=0};level_compaction_dynamic_level_bytes=true;optimize_filters_for_hits=true;memtable_prefix_bloom_size_ratio=0.05;prefix_extractor=capped:12;compaction_pri=kMinOverlappingRatio;compression=kZlibCompression;bottommost_compression=kZlibCompression;compression_opts=-14:4:0"
@@ -162,7 +162,7 @@ I reiniciarem el servei de Percona
 
 ![ScreenShot](imgs/reiniciarPercona.png)
 
-I per comprovar que aixo ha funcionat, tornarem a mirar el tipus de compressio estem utilitzant
+I per comprovar que això ha funcionat, tornarem a mirar el tipus de compressió estem utilitzant
 
 `SELECT * FROM information_schema.rocksdb_cf_options WHERE option_type LIKE '%ompression%' AND cf_name='default';`
 
@@ -172,7 +172,7 @@ I per comprovar que aixo ha funcionat, tornarem a mirar el tipus de compressio e
 
 ### Desactivar l'opció que ve per defecte de innodb_file_per_table
 
-Anirem al my.cnf i afegirem el seguent:
+Anirem al my.cnf i afegirem el següent:
 
 `innodb_file_per_table="OFF"`
 
@@ -184,7 +184,7 @@ Guardem els canvis i reiniciarem el servei de mysql
 
 ![ScreenShot](imgs/reiniciarMysql.png)
 
-Entrarem al Mysql i executarem el seguent, per verificar que el que hem fet funciona:
+Entrarem al Mysql i executarem el següent, per verificar que el que hem fet funciona:
 
 `SHOW VARIABLES LIKE '%file_per_table%';`
 
@@ -192,19 +192,19 @@ Entrarem al Mysql i executarem el seguent, per verificar que el que hem fet func
 
 ### Permisos directori /datadir
 
-Per veure el PATH del datadir anirem a l'arxiu /etc/my.cnf, i buscarem el parametre "datadir"
+Per veure el PATH del datadir anirem a l'arxiu /etc/my.cnf, i buscarem el paràmetre "datadir"
 
 ![ScreenShot](imgs/mydatadir.png)
 
-Per veure els permisos del directori datadir executarem el seguent
+Per veure els permisos del directori datadir executarem el següent
 
 `ls <PATH>/.. -asil | grep mysql`
 
 ![ScreenShot](imgs/datadir.png)
 
-### Veure la mida perdefecte del tablespace de sistema
+### Veure la mida per defecte del tablespace de sistema
 
-Anirem al mysql i executarem la seguent sentencia
+Anirem al mysql i executarem la següent sentència
 
 `SHOW VARIABLES LIKE '%innodb_data%';`
 
@@ -222,7 +222,7 @@ I a continuació executarem la comanda `spc` per transferir l'arxiu de forma seg
 
 ![ScreenShot](imgs/scp.png)
 
-Ara ens situarem en la carpeta on hàgem enviat l'arxiu i descomprimirem l'arxiu
+Ara ens situarem en la carpeta on haguem enviat l'arxiu i descomprimirem l'arxiu
 
 `tar -xzvf sakila-db.tar.gz`
 
@@ -230,19 +230,19 @@ I ens crearà una carpeta amb els arxius que necessitem
 
 ![ScreenShot](imgs/descomprimim.png)
 
-Ara ens situarem a la carpeta que s'ens ha generat
+Ara ens situarem a la carpeta que se'ns ha generat
 
 `cd sakila-db`
 
-I obrirem l'archiu sakila-schema.sql
+I obrirem l'arxiu sakila-schema.sql
 
 `nano sakila-schema.sql`´
 
-Un cop dins de l'archiu farem Ctrl + W, per buscar
+Un cop dins de l'arxiu farem Ctrl + W, per buscar
 
 ![ScreenShot](imgs/buscar.png)
 
-Ara baixarem fins on esta l'estructura de la taula que hem buscat, i afegirem el seguent
+Ara baixarem fins on està l'estructura de la taula que hem buscat, i afegirem el següent
 
 `ENGINE=InnoDB`
 
@@ -254,7 +254,7 @@ A continuació anirem al Percona i importarem la BBDD
 
 `mysql -u <usuari> -p`
 
-I executarem el següent sentència:
+I executarem la següent sentència:
 
 `SOURCE <ruta dels fitxers descomprimits>/sakila-schema.sql;`
 
@@ -266,19 +266,19 @@ Anirem a `/var/lib/mysql` per veure com s'han guardat les dades
 
 ![ScreenShot](imgs/mirarFitxersDades.png)
 
-Entrarem a la carpeta de Sakila i mirarem que conte
+Entrarem a la carpeta de Sakila i mirarem que conté
 
 ![ScreenShot](imgs/carpetaSakila.png)
 
-La carpeta sakila no conté res, per tant aixo vol dir que les dades estan guardades a l'archiu ibdata1, si mirem el que pesa aquest archiu veurem que pesa mes que el que pesa perdefecte (12M)
+La carpeta sakila no conté res, per tant, això vol dir que les dades estan guardades a l'arxiu ibdata1, si mirem el que pesa aquest arxiu veurem que pesa més que el que pesa per defecte (12M)
 
 ![ScreenShot](imgs/pesIbdata1.png)
 
-## Cambiar la configuració del mysql
+## Canviar la configuració del mysql
 
 ### Canviar la localització del directori de dades a /hd-mysql
 
-Primer crearem la carpeta i posarem els permisos que tocan
+Primer crearem la carpeta i posarem els permisos que toca
 
 ![ScreenShot](imgs/carpetaDataDir.png)
 
@@ -286,7 +286,7 @@ Primer crearem la carpeta i posarem els permisos que tocan
 
 ![ScreenShot](imgs/permisosDataDir.png)
 
-Ara anirem a `my.cnf` i modificarem el parametre DataDir, per la carpeta que hem creat
+Ara anirem a 'my.cnf' i modificarem el paràmetre DataDir, per la carpeta que hem creat
 
 ![ScreenShot](imgs/cambiemDataDir.png)
 
@@ -310,13 +310,13 @@ Ara mirem la carpeta i ens ha generat el fitxer `mysql.sock`
 
 ![ScreenShot](imgs/sock.png)
 
-Si intentem entrar al MySQL, tindrem 2 problemas:
+Si intentem entrar al MySQL, tindrem 2 problemes:
 
-Primer al cambiar el datadir hem perdut el password del root, i s'ens ha generat una de nova, per veure-la executarem el seguent:
+Primer al canviar el datadir hem perdut el password del root, i se'ns ha generat una de nova, per veure-la executarem el següent:
 
 `cat /var/log/mysqld.log | grep generated`
 
-Si apareixen mes d'una agafarem la mes recent
+Si apareixen més d'una agafarem la més recent
 
 ![ScreenShot](imgs/nouPass.png)
 
@@ -324,7 +324,7 @@ Ara un cop tenim el password correcte, tampoc podem accedir a mysql
 
 ![ScreenShot](imgs/errorSock.png)
 
-Per solucionar aixo anirem al `my.cnf` i afegirem el seguent
+Per solucionar això anirem al 'my.cnf' i afegirem el següent
 
 ```
 [client]
@@ -340,7 +340,7 @@ Per seguretat haurem de canviar la contrasenya
 
 ### Tenir 2 fitxers corresponents al Tablesace de sistema
 
-Apagarem la maquina, i afegirem 2 discos a la maquina (un per fitxer)
+Apagarem la màquina, i afegirem 2 discos a la màquina (un per fitxer)
 
 ![ScreenShot](imgs/AfegirDisc.png)
 
@@ -354,15 +354,15 @@ Apagarem la maquina, i afegirem 2 discos a la maquina (un per fitxer)
 
 ![ScreenShot](imgs/discosAfegits.png)
 
-Tornarem a encendre la maquina, i muntarem els discos
+Tornarem a encendre la màquina, i muntarem els discos
 
-Executarem el seguent, i buscarem els discos de 10Gb
+Executarem el següent, i buscarem els discos de 10Gb
 
 `fdisk -l`
 
 ![ScreenShot](imgs/trobarDiscos.png)
 
-Un cop tenim els discos identificats, el fortmatarem
+Un cop tenim els discos identificats, el formatarem
 
 `mkfs -t <format> <dispositiu>`
 
@@ -372,7 +372,7 @@ Ara muntarem els discos en el `/etc/fstab`
 
 ![ScreenShot](imgs/fstab.png)
 
-I reiniciarem la maquina
+I reiniciarem la màquina
 
 `init 6`
 
@@ -384,17 +384,17 @@ Ara canviarem el propietari i grup de `/disk1` i `/disk2`
 
 ![ScreenShot](imgs/canviarGroup.png)
 
-A continuació anirem al my.cnf i modificarem el seguent
+A continuació anirem al my.cnf i modificarem el següent
 
 `innodb_data_file_path=ibdata1:12M;/disk1/ibdata2:50M;/disk2/ibdata3:50M:autoextend`
 
-I per fer que els fitxers creixin, afegirem el seguent parametre:
+I per fer que els fitxers creixin, afegirem el següent paràmetre:
 
 `innodb-autoextend-increment=5`
 
 ![ScreenShot](imgs/mycnf.png)
 
-### GERNERAR TABLESPACE PER TAULA EN UN ALTRE PATH
+### GENERAR TABLESPACE PER TAULA EN UN ALTRE PATH
 
 Primer crearem la carpeta
 
@@ -413,7 +413,7 @@ I reiniciem el servei
 
 ![ScreenShot](imgs/reiniciarMysql.png)
 
-Ara anirem a mysql i crearem una taula amb el parametre "DATA DIRECTORY"
+Ara anirem a mysql i crearem una taula amb el paràmetre "DATA DIRECTORY"
 
 `CREATE TABLE prova (p1 INT PRIMARY KEY) DATA DIRECTORY = '/<PATH tspaces>';`
 
@@ -423,13 +423,13 @@ Ara anirem a mirar la carpeta tspaces
 
 ![ScreenShot](imgs/lsTspaces.png)
 
-Entrem a la carpeta sakila, i aqui ens ha d'apareixer la taula
+Entrem a la carpeta sakila, i aquí ens ha d'aparèixer la taula
 
 ![ScreenShot](imgs/lsSakila.png)
 
-### CREAR 2 TABLE SPACES I REPARTIR TAULES ENTRE TABLESPACES
+### CREAR 2 TABLESPACES I REPARTIR TAULES ENTRE TABLESPACES
 
-Anirem al my.cnf i modificarem el parametre `innodb_diretories` i afegirem els directoris que utilitzarem com a tablespaces
+Anirem al my.cnf i modificarem el paràmetre 'innodb_diretories' i afegirem els directoris que utilitzarem com a tablespaces
 
 ![ScreenShot](imgs/innodbDirectories.png)
 
@@ -451,7 +451,7 @@ Mirem la mida dels tspaces
 
 ![ScreenShot](imgs/midaInicialTs.png)
 
-Ara realitzarem operacions DML amb taules de diferens tablespaces
+Ara farem operacions DML amb taules de diferens tablespaces
 
 `SELECT * FROM address a INNER JOIN city c ON a.city_id = c.city_id;`
 
