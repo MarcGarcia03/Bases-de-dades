@@ -116,6 +116,14 @@ Comprovem els canvis
 
 ![ScreenShot](imgs/verificarServerId.png)
 
+[OPCIONAL]Ara anirem al seguent archiu
+
+`/var/lib/mysql/auto.cnf`
+
+I el modificarem, ja que si esten en un entorn virtual, i hem duplicat maquines tindrem IDs repetits
+
+![ScreenShot](imgs/.png)
+
 Ara canviarem el Master de la maquina slave
 
 ```
