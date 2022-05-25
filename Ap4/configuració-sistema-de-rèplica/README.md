@@ -122,7 +122,7 @@ Comprovem els canvis
 
 I el modificarem, ja que si esten en un entorn virtual, i hem duplicat maquines tindrem IDs repetits
 
-![ScreenShot](imgs/.png)
+![ScreenShot](imgs/autocnf.png)
 
 Ara canviarem el Master de la maquina slave
 
