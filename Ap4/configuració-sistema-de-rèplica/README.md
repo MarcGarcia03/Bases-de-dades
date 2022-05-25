@@ -129,8 +129,16 @@ CHANGE MASTER TO
 -> MASTER_CONNECT_RETRY = 10;
 ```
 
+![ScreenShot](imgs/changeMaster.png)
+
 I iniciem l'slave
 
 `START SLAVE;`
 
 ![ScreenShot](imgs/startSlave.png)
+
+Executant la seguent comanda, hauriem de trobar el seguent misatge, per asegurarnos de que tot ha sortit bé
+
+`SHOW SLAVE STATUS\G;`
+
+![ScreenShot](imgs/statusSlave.png)
