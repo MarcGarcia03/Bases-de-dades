@@ -80,7 +80,7 @@ I segudament trobarem els valors de "MASTER_LOG_FILE" i "MASTER_LOG_POS"
 
 Ara crearem l'usuari "slave" a la maquina master
 
-`CREATE USER 'slave'@'IP-SLAVE' IDENTIFIED BY '<pwd>';`
+`CREATE USER 'slave'@'IP-SLAVE' IDENTIFIED WITH mysql_native_password BY '<pwd>';`
 
 I li assigem permisos de replicació
 
@@ -118,12 +118,13 @@ Comprovem els canvis
 
 Ara canviarem el Master de la maquina slave
 
-```CHANGE MASTER TO
+```
+CHANGE MASTER TO
 -> MASTER_HOST = '<ip-servidor-master>',
 -> MASTER_USER = 'slave',
 -> MASTER_PASSWORD = '<pwd>',
 -> MASTER_PORT = 3306,
--> MASTER_LOG_FILE = '<nom>rep.000002',
+-> MASTER_LOG_FILE = '<valor trobat anteriorment>',
 -> MASTER_LOG_POS = <valor trobat anteriorment>,
 -> MASTER_CONNECT_RETRY = 10;
 ```
