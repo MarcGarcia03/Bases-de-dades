@@ -75,6 +75,8 @@ FALTA HACER EL BLACKHOLE EN CADA TABLA
 
 ## CONFIGURACIÓ SLAVE
 
+Del pas anterior ens haurem de quedar amb els parametres `Master_Log_File` i `Read_Master_Log_Pos`
+
 Canviarem el Master de la maquina slave
 
 ```
@@ -83,8 +85,8 @@ CHANGE MASTER TO
 -> MASTER_USER = 'slave',
 -> MASTER_PASSWORD = '<pwd>',
 -> MASTER_PORT = 3306,
--> MASTER_LOG_FILE = '<valor trobat anteriorment>',
--> MASTER_LOG_POS = <valor trobat anteriorment>,
+-> MASTER_LOG_FILE = '<Master_Log_File(pas anterior)>',
+-> MASTER_LOG_POS = <Read_Master_Log_Pos(pas anterior)>,
 -> MASTER_CONNECT_RETRY = 10;
 ```
 
