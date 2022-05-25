@@ -142,3 +142,19 @@ Executant la seguent comanda, hauriem de trobar el seguent misatge, per asegurar
 `SHOW SLAVE STATUS\G;`
 
 ![ScreenShot](imgs/statusSlave.png)
+
+Ara crearem una taula en el Master dins de sakila, i hauriem de veure aquesta taula a l'slave´
+
+```
+CREATE TABLE slave (
+    prova INT
+);
+```
+
+![ScreenShot](imgs/createSlave.png)
+
+Mirem quines taules te sakila a l'slave
+
+`SHOW TABLES sakila;`
+
+![ScreenShot](imgs/mirarTaulaSlave.png)
