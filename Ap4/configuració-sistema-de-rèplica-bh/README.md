@@ -22,7 +22,7 @@ Comprovem la posicio i quin en binlog esta el Master
 
 ## CONFIGURACIÓ BLACKHOLE
 
-Modifiquem el server_id en el my.cnf
+Modifiquem el server_id i declarem els parametres `default_storage_engine` i `default_tmp_storage_engine` en el my.cnf
 
 ![ScreenShot](imgs/serverId.png)
 
@@ -104,18 +104,24 @@ Executant la seguent comanda, hauriem de trobar el seguent misatge, per asegurar
 
 ![ScreenShot](imgs/statusSlave.png)
 
-Ara crearem una taula en el Master dins de sakila, i hauriem de veure aquesta taula a l'slave´
+Ara crearem una taula en el Master dins de sakila i li afegirem dades, ara en el blackhole no hauriem de veure cap dada, pero en l'slave si
 
 ```
-CREATE TABLE slave (
-    prova INT
-);
+CREATE TABLE blackhole (prova INT);
+
+INSERT INTO blackhole VALUES(10);
 ```
 
-![ScreenShot](imgs/createSlave.png)
+![ScreenShot](imgs/createTableBH.png)
 
-Mirem quines taules te sakila a l'slave
+Mirem les dades que te la taula al blackhole
 
-`SHOW TABLES sakila;`
+`SELECT * FROM blackhole;`
+
+![ScreenShot](imgs/mirarBH.png)
+
+Mirem les dades que te la taula a l'slave
+
+`SELECT * FROM blackhole;`
 
 ![ScreenShot](imgs/mirarTaulaSlave.png)
