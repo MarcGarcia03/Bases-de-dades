@@ -7,7 +7,9 @@ wget https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-8.0.4/binar
 
 ![ScreenShot](imgs/wget.png)
 
-`yum install percona-xtrabackup-24 -y`
+`yum update`
+
+`yum localinstall percona-xtrabackup-80-8.0.4-1.el7.x86_64.rpm`
 
 ![ScreenShot](imgs/install.png)
 
