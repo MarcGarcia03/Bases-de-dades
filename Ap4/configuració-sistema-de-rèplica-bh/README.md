@@ -108,7 +108,6 @@ Ara crearem una taula en el Master dins de sakila i li afegirem dades, en el bla
 
 ```
 CREATE TABLE blackhole (prova INT);
-
 INSERT INTO blackhole VALUES(10);
 ```
 
