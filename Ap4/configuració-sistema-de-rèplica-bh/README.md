@@ -104,7 +104,7 @@ Executant la seguent comanda, hauriem de trobar el seguent misatge, per asegurar
 
 ![ScreenShot](imgs/statusSlave.png)
 
-Ara crearem una taula en el Master dins de sakila i li afegirem dades, ara en el blackhole no hauriem de veure cap dada, pero en l'slave si
+Ara crearem una taula en el Master dins de sakila i li afegirem dades, en el blackhole no hauriem de veure cap dada, pero en l'slave si
 
 ```
 CREATE TABLE blackhole (prova INT);
