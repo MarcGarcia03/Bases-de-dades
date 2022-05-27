@@ -16,6 +16,12 @@ Creem el backup
 
 ![ScreenShot](imgs/backup.png)
 
+Preparem el backup
+
+`xtrabackup --prepare --target-dir=/<targetBackup>/`
+
+![ScreenShot](imgs/prepare.png)
+
 Parem el servei de mysql
 
 ![ScreenShot](imgs/stop.png)
