@@ -36,6 +36,10 @@ I restaurarem el backup que acabem de crear
 
 ![ScreenShot](imgs/restore.png)
 
+canviem els permisos dels fitxers que ha creat el xtrabackup a mysql
+
+![ScreenShot](imgs/chown.png)
+
 I aixequem el servei de mysql
 
 ![ScreenShot](imgs/start.png)
