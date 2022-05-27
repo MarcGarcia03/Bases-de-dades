@@ -16,8 +16,20 @@ Creem el backup
 
 ![ScreenShot](imgs/backup.png)
 
-Ara restaurarem el backup que acabem de crear
+Parem el servei de mysql
 
-`rsync -avrP /<pathBackup> /<pathDesti>`
+![ScreenShot](imgs/stop.png)
+
+Ara renombrem la carpeta `/var/lib/mysql/`
+
+![ScreenShot](imgs/mv.png)
+
+I restaurarem el backup que acabem de crear
+
+`rsync -avrP /<pathBackup>/* /<pathDesti>`
 
 ![ScreenShot](imgs/restore.png)
+
+I aixequem el servei de mysql
+
+![ScreenShot](imgs/start.png)
