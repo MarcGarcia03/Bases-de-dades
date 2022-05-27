@@ -18,4 +18,6 @@ Creem el backup
 
 Ara restaurarem el backup que acabem de crear
 
+`rsync -avrP /<pathBackup> /<pathDesti>`
+
 ![ScreenShot](imgs/restore.png)
