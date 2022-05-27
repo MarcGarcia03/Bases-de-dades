@@ -15,3 +15,7 @@ Creem el backup
 `xtrabackup --backup --datadir=/var/lib/mysql/ --target-dir=/<target-path> --user=<usuari> --password=<password>`
 
 ![ScreenShot](imgs/backup.png)
+
+Ara restaurarem el backup que acabem de crear
+
+![ScreenShot](imgs/restore.png)
